@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* RichM Co. brand tokens */
+  --background: #0a0a0a;
+  --foreground: #f5f5f0;
+  --surface-light: #f5f5f0;
+  --surface-dark: #0a0a0a;
+  --accent-purple: #3B0764;
+  --accent-purple-hover: #4C1D95;
+  --muted-fg: #6b6b6b;
+  --border-dark: #1f1f1f;
+  --border-light: #d4d4d0;
+
+  --primary: #3B0764;
+  --primary-foreground: #f5f5f0;
+  --secondary: #f5f5f0;
+  --secondary-foreground: #0a0a0a;
+  --muted: #1f1f1f;
+  --muted-foreground: #6b6b6b;
+  --border: #1f1f1f;
+  --radius: 0.125rem;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bebas);
+  --font-serif: var(--font-dm-serif);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface-light: var(--surface-light);
+  --color-surface-dark: var(--surface-dark);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-purple-hover: var(--accent-purple-hover);
+  --color-muted-fg: var(--muted-fg);
+  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border-light);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --radius-sm: 0.0625rem;
+  --radius-md: 0.125rem;
+  --radius-lg: 0.125rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Timeline animation */
+@keyframes drawLine {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+.timeline-line-fill {
+  animation: drawLine 1.5s ease-out forwards;
+}
+
+/* Hero text animation */
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-line-1 { animation: heroSlideUp 0.7s ease-out 0.1s forwards; opacity: 0; }
+.hero-line-2 { animation: heroSlideUp 0.7s ease-out 0.3s forwards; opacity: 0; }
+.hero-line-3 { animation: heroSlideUp 0.7s ease-out 0.5s forwards; opacity: 0; }
+.hero-subhead { animation: heroSlideUp 0.7s ease-out 0.7s forwards; opacity: 0; }
+.hero-cta { animation: heroSlideUp 0.7s ease-out 0.9s forwards; opacity: 0; }
