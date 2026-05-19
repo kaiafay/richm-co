@@ -47,7 +47,7 @@ export function Nav() {
         scrolled ? 'bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-[#1f1f1f]' : 'bg-[#0a0a0a]'
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
+      <nav className="max-w-[1200px] mx-auto px-6 lg:px-12 h-16 flex items-center justify-between">
         {/* Wordmark */}
         <a
           href="#"

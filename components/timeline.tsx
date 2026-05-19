@@ -62,13 +62,13 @@ function MilestoneItem({
       ref={ref}
       className="relative flex items-start gap-6 pb-14 last:pb-0"
     >
-      {/* Dot */}
-      <div className="relative flex-shrink-0 mt-1.5">
+      {/* Dot column — fixed w-8 so line center (15px) aligns with dot center (16px) */}
+      <div className="w-8 flex-shrink-0 flex justify-center mt-1.5">
         <div
           className={`
             w-4 h-4 rounded-full border-2 transition-all duration-500
             ${active
-              ? 'bg-[#3B0764] border-[#3B0764]'
+              ? 'bg-[#3D0F52] border-[#3D0F52]'
               : 'bg-transparent border-[#3a3a3a]'
             }
           `}
@@ -93,44 +93,53 @@ function MilestoneItem({
 }
 
 export function Timeline() {
-  const lineRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [lineHeight, setLineHeight] = useState(0)
+  const [lineProgress, setLineProgress] = useState(0)
 
   useEffect(() => {
     const container = containerRef.current
-    const line = lineRef.current
-    if (!container || !line) return
+    if (!container) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Animate line height
-          const totalHeight = container.scrollHeight
-          setLineHeight(totalHeight)
-          observer.unobserve(container)
-        }
-      },
-      { threshold: 0.05 }
-    )
+    const handleScroll = () => {
+      const rect = container.getBoundingClientRect()
+      const viewportHeight = window.innerHeight
+      const containerHeight = rect.height
+      // progress 0 = container top at viewport bottom; progress 1 = container bottom at viewport top
+      const scrolled = viewportHeight - rect.top
+      const total = containerHeight + viewportHeight
+      const progress = Math.max(0, Math.min(1, scrolled / total))
+      setLineProgress(progress)
+    }
 
-    observer.observe(container)
-    return () => observer.disconnect()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <section
       id="experience"
-      className="bg-[#0a0a0a] py-24 lg:py-32"
+      className="relative bg-[#0a0a0a] py-[7.2rem] lg:py-[9.6rem]"
       aria-label="Experience timeline"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Film grain */}
+      <div className="grain-overlay" aria-hidden="true" />
+
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-[4]">
         {/* Section header */}
-        <div className="mb-20">
-          <h2 className="font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
+        <div className="mb-20 relative overflow-hidden">
+          {/* Ghost watermark — "YEARS" behind headline */}
+          <span
+            className="absolute top-0 -left-2 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[28vw] lg:text-[20rem] leading-none select-none pointer-events-none"
+            aria-hidden="true"
+          >
+            YEARS
+          </span>
+
+          <h2 className="relative font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
             20 Years.
           </h2>
-          <h2 className="font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
+          <h2 className="relative font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
             One Focus.
           </h2>
           {/* Purple accent rule */}
@@ -140,29 +149,32 @@ export function Timeline() {
           </p>
         </div>
 
-        {/* Timeline */}
+        {/* Timeline list */}
         <div ref={containerRef} className="relative max-w-3xl">
-          {/* Animated vertical line */}
+          {/*
+            Vertical line — position:absolute, contained in this div.
+            left: 15px centers it on the w-8 (32px) dot column (dot center = 16px).
+            top: 14px = mt-1.5 (6px) + half of h-4 (8px) = first dot center.
+            height: calc(100% - 14px) runs to near the bottom of the last dot.
+          */}
           <div
-            className="absolute left-[7px] top-0 w-px bg-[#1f1f1f] overflow-hidden"
-            style={{ height: '100%' }}
+            className="absolute w-px bg-[#1f1f1f] overflow-hidden"
+            style={{ left: '15px', top: '14px', height: 'calc(100% - 14px)' }}
             aria-hidden="true"
           >
             <div
-              ref={lineRef}
-              className="w-full bg-[#3a3a3a] transition-all duration-[1600ms] ease-out"
-              style={{ height: lineHeight > 0 ? '100%' : '0%' }}
+              className="w-full bg-[#3D0F52]/50"
+              style={{ height: `${lineProgress * 100}%` }}
             />
           </div>
 
           {/* Milestones */}
-          <div className="pl-8">
-            {milestones.map((milestone, index) => (
-              <MilestoneItem key={index} milestone={milestone} index={index} />
-            ))}
-          </div>
+          {milestones.map((milestone, index) => (
+            <MilestoneItem key={index} milestone={milestone} index={index} />
+          ))}
         </div>
       </div>
+
     </section>
   )
 }

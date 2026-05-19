@@ -1,3 +1,5 @@
+import { FadeUp } from '@/components/fade-up'
+
 const services = [
   {
     number: '01',
@@ -23,50 +25,52 @@ export function Services() {
   return (
     <section
       id="services"
-      className="bg-[#f5f5f0] py-24 lg:py-32"
+      className="relative bg-[#0a0a0a] py-[7.2rem] lg:py-[9.6rem]"
       aria-label="Services"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-[2]">
         {/* Section label */}
-        <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#6b6b6b] mb-16">
-          What We Do
-        </p>
+        <FadeUp delay={0}>
+          <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#6b6b6b] mb-16">
+            What We Do
+          </p>
+        </FadeUp>
 
-        {/* Service columns */}
+        {/* Service columns — no dividers, generous padding provides separation */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {services.map((service, index) => (
-            <div
+            <FadeUp
               key={service.number}
-              className={`
-                relative py-10 px-8
-                ${index !== 0 ? 'md:border-l border-l-[#3B0764]' : ''}
-                ${index !== 0 ? 'border-t md:border-t-0 border-t-[#d4d4d0]' : ''}
-              `}
+              delay={(index + 1) * 100}
+              className={`relative pt-4 pb-10 px-10 lg:px-12 overflow-visible ${index !== 0 ? 'mt-12 md:mt-0' : ''}`}
             >
-              {/* Large muted number */}
+              {/* Large decorative number — overhangs top of column content */}
               <span
-                className="font-display text-8xl md:text-9xl text-[#d4d4d0] leading-none select-none"
+                className="absolute -top-6 left-10 lg:left-12 font-display text-[120px] md:text-[140px] text-[#222222] leading-none select-none pointer-events-none"
                 aria-hidden="true"
               >
                 {service.number}
               </span>
 
-              {/* Purple accent rule */}
-              <div
-                className="w-12 h-px bg-[#3B0764] my-5"
-                aria-hidden="true"
-              />
+              {/* Content — pushed below the decorative number */}
+              <div className="mt-[95px] md:mt-[110px]">
+                {/* Purple accent rule */}
+                <div
+                  className="w-12 h-px bg-[#3B0764] mb-5"
+                  aria-hidden="true"
+                />
 
-              {/* Title */}
-              <h2 className="font-display text-4xl lg:text-5xl text-[#0a0a0a] uppercase tracking-wide leading-none mb-4">
-                {service.title}
-              </h2>
+                {/* Title */}
+                <h2 className="font-display text-4xl lg:text-5xl text-[#f5f5f0] uppercase tracking-wide leading-none mb-4">
+                  {service.title}
+                </h2>
 
-              {/* Description */}
-              <p className="font-sans text-base text-[#3a3a3a] leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+                {/* Description */}
+                <p className="font-sans text-base text-[#a0a0a0] leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </FadeUp>
           ))}
         </div>
       </div>

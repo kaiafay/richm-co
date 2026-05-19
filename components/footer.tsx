@@ -40,7 +40,7 @@ export function Footer() {
       className="bg-[#0a0a0a] border-t border-[#1f1f1f] py-12"
       aria-label="Site footer"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Wordmark */}
           <a

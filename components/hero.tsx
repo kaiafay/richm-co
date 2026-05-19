@@ -6,42 +6,54 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-[#0a0a0a] flex items-center overflow-hidden"
+      className="relative h-[100dvh] bg-[#0a0a0a] flex flex-col overflow-hidden"
       aria-label="Hero"
     >
+      {/* Film grain */}
+      <div className="grain-overlay" aria-hidden="true" />
+
       {/* Layout grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full pt-24 pb-16 lg:pb-0 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-0 items-center min-h-screen">
+      <div className="h-full max-w-[1200px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-0 items-stretch">
 
         {/* Left: Text — 60% */}
-        <div className="lg:col-span-3 flex flex-col justify-center">
-          <h1 className="font-display uppercase text-[#f5f5f0] leading-none tracking-wide">
-            <span className="hero-line-1 block text-[14vw] md:text-[11vw] lg:text-[9vw] xl:text-[8.5rem]">
+        <div className="lg:col-span-3 flex flex-col justify-center relative pt-16 pb-10 lg:pb-12">
+
+          {/* Ghost watermark — "RICHM" behind headline */}
+          <span
+            className="absolute top-1/2 -translate-y-1/2 -left-4 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[22vw] xl:text-[18rem] leading-none select-none pointer-events-none whitespace-nowrap z-0"
+            aria-hidden="true"
+          >
+            RICHM
+          </span>
+
+          <h1 className="relative z-10 font-display uppercase text-[#f5f5f0] leading-none tracking-wide">
+            <span className="hero-line-1 block text-[14vw] md:text-[11vw] lg:text-[8vw] xl:text-[7.5rem]">
               Build the Body.
             </span>
-            <span className="hero-line-2 block text-[14vw] md:text-[11vw] lg:text-[9vw] xl:text-[8.5rem]">
+            <span className="hero-line-2 block text-[14vw] md:text-[11vw] lg:text-[8vw] xl:text-[7.5rem]">
               Close the Deal.
             </span>
-            <span className="hero-line-3 block text-[14vw] md:text-[11vw] lg:text-[9vw] xl:text-[8.5rem]">
+            <span className="hero-line-3 block text-[14vw] md:text-[11vw] lg:text-[8vw] xl:text-[7.5rem]">
               Own Your Life.
             </span>
           </h1>
 
-          <p className="hero-subhead mt-8 font-serif italic text-[#a0a0a0] text-xl md:text-2xl leading-relaxed max-w-2xl">
+          <p className="hero-subhead relative z-10 mt-6 lg:mt-8 font-serif italic text-[#a0a0a0] text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl">
             Coaching for people who are done playing small — in the gym, in business, and everywhere in between.
           </p>
 
-          <div className="hero-cta mt-10">
+          <div className="hero-cta relative z-10 mt-6 lg:mt-8">
             <a
               href={CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="
                 inline-block font-sans text-sm font-medium tracking-widest uppercase
-                border border-[#f5f5f0] text-[#f5f5f0]
-                px-10 py-4
-                transition-all duration-300
-                hover:bg-[#3B0764] hover:border-[#3B0764]
-                focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B0764]
+                bg-transparent border border-[#3D0F52] text-[#f5f5f0]
+                px-12 py-4
+                transition-colors duration-200
+                hover:bg-[#3D0F52] hover:text-[#f5f5f0]
+                focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3D0F52]
               "
             >
               Let&apos;s Work Together
@@ -50,22 +62,18 @@ export function Hero() {
         </div>
 
         {/* Right: Image — 40% */}
-        <div className="lg:col-span-2 relative h-[50vw] lg:h-screen max-h-[780px] lg:max-h-none overflow-hidden">
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-[#0a0a0a]/30 z-10" aria-hidden="true" />
-          <img
-            src="/images/hero.jpg"
-            alt="Rich McCauley — Fitness and Business Coach"
-            className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%]"
-          />
+        <div className="lg:col-span-2 flex flex-col h-[38vh] sm:h-[42vh] lg:h-full min-h-0 pb-8 lg:pt-[calc(4rem+2.5rem)] lg:pb-10">
+          <div className="relative w-full flex-1 min-h-0 overflow-hidden">
+            {/* Dark overlay */}
+            <div className="absolute inset-0 bg-[#0a0a0a]/30 z-10" aria-hidden="true" />
+            <img
+              src="/images/hero.jpg"
+              alt="Rich McCauley — Fitness and Business Coach"
+              className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%]"
+            />
+          </div>
         </div>
       </div>
-
-      {/* Purple accent rule at bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px bg-[#3B0764]"
-        aria-hidden="true"
-      />
     </section>
   )
 }
