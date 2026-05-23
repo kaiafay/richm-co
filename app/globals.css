@@ -79,11 +79,11 @@
   animation: drawLine 1.5s ease-out forwards;
 }
 
-/* Hero text animation */
-@keyframes heroSlideUp {
+/* Hero entrance animation */
+@keyframes heroFadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -91,11 +91,70 @@
   }
 }
 
-.hero-line-1 { animation: heroSlideUp 0.7s ease-out 0.1s forwards; opacity: 0; }
-.hero-line-2 { animation: heroSlideUp 0.7s ease-out 0.3s forwards; opacity: 0; }
-.hero-line-3 { animation: heroSlideUp 0.7s ease-out 0.5s forwards; opacity: 0; }
-.hero-subhead { animation: heroSlideUp 0.7s ease-out 0.7s forwards; opacity: 0; }
-.hero-cta { animation: heroSlideUp 0.7s ease-out 0.9s forwards; opacity: 0; }
+@keyframes heroSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroImageSettle {
+  from {
+    opacity: 0;
+    transform: translateX(10px) scale(1.006);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.hero-line-1 { animation: heroFadeUp 0.56s ease-out 0.08s forwards; opacity: 0; }
+.hero-line-2 { animation: heroFadeUp 0.56s ease-out 0.2s forwards; opacity: 0; }
+.hero-line-3 { animation: heroFadeUp 0.56s ease-out 0.32s forwards; opacity: 0; }
+.hero-subhead { animation: heroFadeUp 0.56s ease-out 0.46s forwards; opacity: 0; }
+.hero-cta { animation: heroFadeUp 0.56s ease-out 0.58s forwards; opacity: 0; }
+.hero-image-enter { animation: heroImageSettle 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; opacity: 0; transform-origin: center; }
+
+@media (min-width: 1024px) {
+  .hero-line-1 { animation: heroSlideInLeft 0.9s ease-out 0.12s forwards; opacity: 0; }
+  .hero-line-2 { animation: heroSlideInLeft 0.9s ease-out 0.26s forwards; opacity: 0; }
+  .hero-line-3 { animation: heroSlideInLeft 0.9s ease-out 0.4s forwards; opacity: 0; }
+  .hero-subhead { animation: heroSlideInLeft 0.9s ease-out 0.58s forwards; opacity: 0; }
+  .hero-cta { animation: heroSlideInLeft 0.9s ease-out 0.76s forwards; opacity: 0; }
+
+  .service-reveal {
+    transition-duration: 760ms;
+  }
+}
+
+@keyframes ctaButtonScale {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.085); }
+  100% { transform: scale(1); }
+}
+
+.cta-button-attention {
+  animation: ctaButtonScale 1100ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-line-1,
+  .hero-line-2,
+  .hero-line-3,
+  .hero-subhead,
+  .hero-cta,
+  .hero-image-enter,
+  .cta-button-attention {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
 
 /* Single soft bleed between sections (use on outgoing section only) */
 .section-bleed-to-light {

@@ -49,7 +49,7 @@ function MilestoneItem({
       <div className="w-8 flex-shrink-0 flex justify-center mt-1.5">
         <div
           className={`
-            w-4 h-4 rounded-full border-2 transition-all duration-500
+            w-4 h-4 rounded-full border-2 transition-all duration-700
             ${active
               ? 'bg-accent-purple-hover border-accent-violet shadow-[0_0_18px_rgb(139_92_246_/_0.18)]'
               : 'bg-transparent border-[#3a3a3a]'
@@ -61,7 +61,7 @@ function MilestoneItem({
 
       {/* Content */}
       <div
-        className={`transition-all duration-500 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        className={`transition-all duration-850 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         style={{ transitionDelay: `${index * 80}ms` }}
       >
         <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f0] uppercase tracking-wide leading-none mb-2">
@@ -173,7 +173,7 @@ export function Timeline() {
             aria-hidden="true"
           >
             <div
-              className="w-full bg-accent-violet/60"
+              className="w-full bg-accent-violet/60 transition-[height] duration-200 ease-out"
               style={{ height: `${maxLineProgress * 100}%` }}
             />
           </div>

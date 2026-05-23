@@ -30,7 +30,7 @@ export function Services() {
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-[2]">
         {/* Section label */}
-        <FadeUp delay={0}>
+        <FadeUp delay={0} className="service-reveal">
           <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#6b6b6b] mb-16">
             What We Do
           </p>
@@ -42,7 +42,7 @@ export function Services() {
             <FadeUp
               key={service.number}
               delay={(index + 1) * 100}
-              className={`relative pt-4 pb-10 px-10 lg:px-12 overflow-visible ${index !== 0 ? 'mt-12 md:mt-0' : ''}`}
+              className={`service-reveal relative pt-4 pb-10 px-10 lg:px-12 overflow-visible ${index !== 0 ? 'mt-12 md:mt-0' : ''}`}
             >
               {/* Large decorative number — overhangs top of column content */}
               <span

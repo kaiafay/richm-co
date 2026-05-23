@@ -33,7 +33,7 @@ export function About() {
           </FadeUp>
 
           {/* Right: Copy */}
-          <FadeUp delay={100} className="flex flex-col justify-center lg:pt-8">
+          <div className="flex flex-col justify-center lg:pt-8">
             {/* Purple accent rule */}
             <div className="w-12 h-px bg-accent-violet mb-8" aria-hidden="true" />
 
@@ -52,7 +52,7 @@ export function About() {
                 The through line across all of it: most people already know what they need to do. Rich helps them actually do it.
               </p>
             </div>
-          </FadeUp>
+          </div>
         </div>
       </div>
 
