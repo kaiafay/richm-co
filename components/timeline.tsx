@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 const milestones = [
   {
@@ -32,34 +32,17 @@ const milestones = [
 function MilestoneItem({
   milestone,
   index,
+  active,
+  setItemRef,
 }: {
   milestone: (typeof milestones)[number]
   index: number
+  active: boolean
+  setItemRef: (index: number, el: HTMLDivElement | null) => void
 }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [active, setActive] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true)
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.5 }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <div
-      ref={ref}
+      ref={(el) => setItemRef(index, el)}
       className="relative flex items-start gap-6 pb-14 last:pb-0"
     >
       {/* Dot column — fixed w-8 so line center (15px) aligns with dot center (16px) */}
@@ -94,7 +77,35 @@ function MilestoneItem({
 
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [lineProgress, setLineProgress] = useState(0)
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [maxLineProgress, setMaxLineProgress] = useState(0)
+  const [dotThresholds, setDotThresholds] = useState<number[]>([])
+
+  useLayoutEffect(() => {
+    const calculateDotThresholds = () => {
+      const container = containerRef.current
+      if (!container) return
+
+      const lineStart = 14
+      const dotTopOffset = 6
+      const lineHeight = Math.max(1, container.offsetHeight - lineStart)
+      const thresholds = itemRefs.current.map((item) => {
+        if (!item) return 1
+        const dotTop = item.offsetTop + dotTopOffset
+        return Math.max(0, Math.min(1, (dotTop - lineStart) / lineHeight))
+      })
+
+      setDotThresholds(thresholds)
+    }
+
+    const frame = window.requestAnimationFrame(calculateDotThresholds)
+    window.addEventListener('resize', calculateDotThresholds)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('resize', calculateDotThresholds)
+    }
+  }, [])
 
   useEffect(() => {
     const container = containerRef.current
@@ -103,12 +114,11 @@ export function Timeline() {
     const handleScroll = () => {
       const rect = container.getBoundingClientRect()
       const viewportHeight = window.innerHeight
-      const containerHeight = rect.height
-      // progress 0 = container top at viewport bottom; progress 1 = container bottom at viewport top
-      const scrolled = viewportHeight - rect.top
-      const total = containerHeight + viewportHeight
-      const progress = Math.max(0, Math.min(1, scrolled / total))
-      setLineProgress(progress)
+      const lineStart = 14
+      const lineHeight = Math.max(1, container.offsetHeight - lineStart)
+      const triggerY = viewportHeight * 0.85
+      const progress = Math.max(0, Math.min(1, (triggerY - rect.top - lineStart) / lineHeight))
+      setMaxLineProgress((current) => Math.max(current, progress))
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -164,13 +174,25 @@ export function Timeline() {
           >
             <div
               className="w-full bg-accent-violet/60"
-              style={{ height: `${lineProgress * 100}%` }}
+              style={{ height: `${maxLineProgress * 100}%` }}
             />
           </div>
 
           {/* Milestones */}
           {milestones.map((milestone, index) => (
-            <MilestoneItem key={index} milestone={milestone} index={index} />
+            <MilestoneItem
+              key={index}
+              milestone={milestone}
+              index={index}
+              active={
+                maxLineProgress > 0 &&
+                dotThresholds[index] !== undefined &&
+                maxLineProgress >= dotThresholds[index]
+              }
+              setItemRef={(itemIndex, el) => {
+                itemRefs.current[itemIndex] = el
+              }}
+            />
           ))}
         </div>
       </div>
