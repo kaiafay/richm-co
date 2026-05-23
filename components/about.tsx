@@ -12,15 +12,22 @@ export function About() {
           {/* Left: Image */}
           <FadeUp delay={0}>
             <div className="relative">
+              <img
+                src="/images/about.webp"
+                alt=""
+                className="absolute -inset-4 h-[calc(100%+2rem)] w-[calc(100%+2rem)] object-cover object-top grayscale-[15%] brightness-[0.55] blur-2xl opacity-30"
+                aria-hidden="true"
+              />
               <div
-                className="aspect-[3/4] overflow-hidden bg-[#1a1a1a]"
+                className="aspect-[3/4] overflow-hidden bg-[#1a1a1a] relative shadow-[0_0_48px_rgb(0_0_0_/_0.55)]"
                 aria-hidden="false"
               >
                 <img
-                  src="/images/about.jpg"
+                  src="/images/about.webp"
                   alt="Rich McCauley, founder of RichM Co."
-                  className="w-full h-full object-cover object-top grayscale-[15%]"
+                  className="w-full h-full object-cover object-top grayscale-[15%] brightness-[0.82]"
                 />
+                <div className="grain-overlay-image" aria-hidden="true" />
               </div>
             </div>
           </FadeUp>

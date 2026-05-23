@@ -63,14 +63,17 @@ export function Hero() {
 
         {/* Right: Image — 40% */}
         <div className="lg:col-span-2 flex flex-col h-[38vh] sm:h-[42vh] lg:h-full min-h-0 pb-8 lg:pt-[calc(4rem+2.5rem)] lg:pb-10">
-          <div className="relative w-full flex-1 min-h-0 overflow-hidden">
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-[#0a0a0a]/30 z-10" aria-hidden="true" />
+          <div className="hero-image-bleed relative w-full flex-1 min-h-0 lg:w-[calc(100%+4rem)] lg:-mr-16">
             <img
-              src="/images/hero.jpg"
+              src="/images/hero.webp"
               alt="Rich McCauley — Fitness and Business Coach"
-              className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%]"
+              className="absolute inset-0 w-full h-full object-cover object-[58%_center] grayscale-[20%] brightness-[0.92] contrast-[1.08]"
             />
+            <div
+              className="absolute inset-0 bg-[linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.56)_10%,rgb(10_10_10_/_0.12)_28%,transparent_48%),linear-gradient(0deg,#0a0a0a_0%,rgb(10_10_10_/_0.55)_10%,transparent_28%),linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.24)_8%,transparent_22%)]"
+              aria-hidden="true"
+            />
+            <div className="grain-overlay-image" aria-hidden="true" />
           </div>
         </div>
       </div>
