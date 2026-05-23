@@ -12,15 +12,25 @@ export function Hero() {
       {/* Film grain */}
       <div className="grain-overlay" aria-hidden="true" />
 
+      {/* Mobile background image */}
+      <div className="absolute inset-0 lg:hidden" aria-hidden="true">
+        <img
+          src="/images/hero.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-[58%_center] grayscale-[20%] brightness-[0.68] contrast-[1.08]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.58)_18%,rgb(10_10_10_/_0.34)_48%,#0a0a0a_100%),linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.56)_34%,rgb(10_10_10_/_0.18)_68%,#0a0a0a_100%)]" />
+      </div>
+
       {/* Layout grid */}
       <div className="h-full max-w-[1200px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-0 items-stretch">
 
         {/* Left: Text — 60% */}
-        <div className="lg:col-span-3 flex flex-col justify-center relative pt-16 pb-10 lg:pb-12">
+        <div className="lg:col-span-3 flex flex-col justify-center relative pt-28 pb-16 md:pt-32 lg:pt-16 lg:pb-12">
 
           {/* Ghost watermark — "RICHM" behind headline */}
           <span
-            className="absolute top-1/2 -translate-y-1/2 -left-4 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[22vw] xl:text-[18rem] leading-none select-none pointer-events-none whitespace-nowrap z-0"
+            className="hidden md:block absolute top-1/2 -translate-y-1/2 -left-4 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[22vw] xl:text-[18rem] leading-none select-none pointer-events-none whitespace-nowrap z-0"
             aria-hidden="true"
           >
             RICHM
@@ -63,7 +73,7 @@ export function Hero() {
         </div>
 
         {/* Right: Image — 40% */}
-        <div className="lg:col-span-2 flex flex-col h-[38vh] sm:h-[42vh] lg:h-full min-h-0 pb-8 lg:pt-[calc(4rem+2.5rem)] lg:pb-10">
+        <div className="hidden lg:col-span-2 lg:flex flex-col h-[38vh] sm:h-[42vh] lg:h-full min-h-0 pb-8 lg:pt-[calc(4rem+2.5rem)] lg:pb-10">
           <div className="hero-image-bleed relative w-full flex-1 min-h-0 lg:w-[calc(100%+4rem)] lg:-mr-16">
             <img
               src="/images/hero.webp"
