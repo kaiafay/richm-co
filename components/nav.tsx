@@ -52,7 +52,7 @@ export function Nav() {
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-          className="font-display text-2xl text-[#f5f5f0] tracking-wide hover:text-[#3B0764] transition-colors"
+          className="font-display text-2xl text-[#f5f5f0] tracking-wide hover:text-accent-violet transition-colors"
           aria-label="RichM Co. — home"
         >
           RichM Co.
@@ -69,8 +69,8 @@ export function Nav() {
                   onClick={() => handleNavClick(link.href)}
                   className={`font-sans text-sm tracking-widest uppercase transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#4C1D95]'
-                      : 'text-[#a0a0a0] hover:text-[#4C1D95]'
+                      ? 'text-accent-violet'
+                      : 'text-[#a0a0a0] hover:text-accent-violet'
                   }`}
                 >
                   {link.label}
@@ -113,7 +113,7 @@ export function Nav() {
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className="font-display text-3xl text-[#f5f5f0] tracking-wider hover:text-[#4C1D95] transition-colors w-full text-left"
+                  className="font-display text-3xl text-[#f5f5f0] tracking-wider hover:text-accent-violet transition-colors w-full text-left"
                 >
                   {link.label}
                 </button>

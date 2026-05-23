@@ -16,7 +16,7 @@ export function CTA() {
         {/* Purple accent rule */}
         <FadeUp delay={0}>
           <div
-            className="w-12 h-px bg-[#3B0764] mx-auto mb-12"
+            className="w-12 h-px bg-accent-violet mx-auto mb-12"
             aria-hidden="true"
           />
         </FadeUp>
@@ -40,11 +40,12 @@ export function CTA() {
             rel="noopener noreferrer"
             className="
               inline-block font-sans text-sm font-medium tracking-widest uppercase
-              bg-transparent border border-[#3D0F52] text-[#f5f5f0]
+              bg-transparent border border-accent-violet text-[#f5f5f0]
               px-12 py-4
+              shadow-[0_0_24px_rgb(139_92_246_/_0.12)]
               transition-colors duration-200
-              hover:bg-[#3D0F52] hover:text-[#f5f5f0]
-              focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3D0F52]
+              hover:bg-accent-purple-hover hover:border-accent-violet hover:text-[#f5f5f0]
+              focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet
             "
           >
             Book a Free Call

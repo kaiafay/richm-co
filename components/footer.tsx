@@ -46,7 +46,7 @@ export function Footer() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="font-display text-xl text-[#f5f5f0] tracking-wide hover:text-[#3B0764] transition-colors"
+            className="font-display text-xl text-[#f5f5f0] tracking-wide hover:text-accent-violet transition-colors"
             aria-label="RichM Co. — back to top"
           >
             RichM Co.
@@ -59,7 +59,7 @@ export function Footer() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="font-sans text-xs tracking-widest uppercase text-[#6b6b6b] hover:text-[#4C1D95] transition-colors"
+                    className="font-sans text-xs tracking-widest uppercase text-[#6b6b6b] hover:text-accent-violet transition-colors"
                   >
                     {link.label}
                   </button>
@@ -74,7 +74,7 @@ export function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6b6b6b] hover:text-[#4C1D95] transition-colors"
+              className="text-[#6b6b6b] hover:text-accent-violet transition-colors"
               aria-label="RichM Co. on Instagram"
             >
               <InstagramIcon />

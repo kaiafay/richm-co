@@ -49,11 +49,12 @@ export function Hero() {
               rel="noopener noreferrer"
               className="
                 inline-block font-sans text-sm font-medium tracking-widest uppercase
-                bg-transparent border border-[#3D0F52] text-[#f5f5f0]
+                bg-transparent border border-accent-violet text-[#f5f5f0]
                 px-12 py-4
+                shadow-[0_0_24px_rgb(139_92_246_/_0.12)]
                 transition-colors duration-200
-                hover:bg-[#3D0F52] hover:text-[#f5f5f0]
-                focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3D0F52]
+                hover:bg-accent-purple-hover hover:border-accent-violet hover:text-[#f5f5f0]
+                focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet
               "
             >
               Let&apos;s Work Together
@@ -67,7 +68,7 @@ export function Hero() {
             <img
               src="/images/hero.webp"
               alt="Rich McCauley — Fitness and Business Coach"
-              className="absolute inset-0 w-full h-full object-cover object-[58%_center] grayscale-[20%] brightness-[0.92] contrast-[1.08]"
+              className="absolute inset-0 w-full h-full object-cover object-[58%_center] grayscale-[20%] brightness-[0.90] contrast-[1.08]"
             />
             <div
               className="absolute inset-0 bg-[linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.56)_10%,rgb(10_10_10_/_0.12)_28%,transparent_48%),linear-gradient(0deg,#0a0a0a_0%,rgb(10_10_10_/_0.55)_10%,transparent_28%),linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.24)_8%,transparent_22%)]"

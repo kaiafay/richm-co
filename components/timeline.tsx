@@ -68,7 +68,7 @@ function MilestoneItem({
           className={`
             w-4 h-4 rounded-full border-2 transition-all duration-500
             ${active
-              ? 'bg-[#3D0F52] border-[#3D0F52]'
+              ? 'bg-accent-purple-hover border-accent-violet shadow-[0_0_18px_rgb(139_92_246_/_0.18)]'
               : 'bg-transparent border-[#3a3a3a]'
             }
           `}
@@ -143,7 +143,7 @@ export function Timeline() {
             One Focus.
           </h2>
           {/* Purple accent rule */}
-          <div className="w-16 h-px bg-[#3B0764] mt-8 mb-5" aria-hidden="true" />
+          <div className="w-16 h-px bg-accent-violet mt-8 mb-5" aria-hidden="true" />
           <p className="font-serif italic text-[#a0a0a0] text-xl md:text-2xl">
             The background behind the method.
           </p>
@@ -163,7 +163,7 @@ export function Timeline() {
             aria-hidden="true"
           >
             <div
-              className="w-full bg-[#3D0F52]/50"
+              className="w-full bg-accent-violet/60"
               style={{ height: `${lineProgress * 100}%` }}
             />
           </div>

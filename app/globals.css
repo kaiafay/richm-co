@@ -11,6 +11,7 @@
   --surface-dark: #0a0a0a;
   --accent-purple: #3B0764;
   --accent-purple-hover: #4C1D95;
+  --accent-violet: #8B5CF6;
   --muted-fg: #6b6b6b;
   --border-dark: #1f1f1f;
   --border-light: #d4d4d0;
@@ -36,6 +37,7 @@
   --color-surface-dark: var(--surface-dark);
   --color-accent-purple: var(--accent-purple);
   --color-accent-purple-hover: var(--accent-purple-hover);
+  --color-accent-violet: var(--accent-violet);
   --color-muted-fg: var(--muted-fg);
   --color-border-dark: var(--border-dark);
   --color-border-light: var(--border-light);

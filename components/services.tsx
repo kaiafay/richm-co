@@ -56,7 +56,7 @@ export function Services() {
               <div className="mt-[95px] md:mt-[110px]">
                 {/* Purple accent rule */}
                 <div
-                  className="w-12 h-px bg-[#3B0764] mb-5"
+                  className="w-12 h-px bg-accent-violet mb-5"
                   aria-hidden="true"
                 />
 

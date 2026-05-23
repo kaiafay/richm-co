@@ -35,7 +35,7 @@ export function About() {
           {/* Right: Copy */}
           <FadeUp delay={100} className="flex flex-col justify-center lg:pt-8">
             {/* Purple accent rule */}
-            <div className="w-12 h-px bg-[#3B0764] mb-8" aria-hidden="true" />
+            <div className="w-12 h-px bg-accent-violet mb-8" aria-hidden="true" />
 
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl text-[#f5f5f0] uppercase tracking-wide leading-none mb-10">
               The Method Comes From the Man
