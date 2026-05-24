@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Experience', href: '#experience' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -19,18 +19,28 @@ export function Nav() {
       setScrolled(window.scrollY > 20)
 
       const sections = navLinks.map((l) => l.href.replace('#', ''))
-      for (const id of sections.reverse()) {
+      for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && window.scrollY >= el.offsetTop - 100) {
           setActiveSection(id)
           return
         }
       }
+
+      setActiveSection('')
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
 
   const handleNavClick = (href: string) => {
     setMenuOpen(false)
@@ -51,7 +61,11 @@ export function Nav() {
         {/* Wordmark */}
         <a
           href="#"
-          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+          onClick={(e) => {
+            e.preventDefault()
+            setMenuOpen(false)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }}
           className="font-display text-2xl text-[#f5f5f0] tracking-wide hover:text-accent-violet transition-colors"
           aria-label="RichM Co. — home"
         >
@@ -82,46 +96,59 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          type="button"
+          className="md:hidden relative z-[70] size-10"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
         >
           <span
-            className={`block w-6 h-px bg-[#f5f5f0] transition-transform duration-300 ${
-              menuOpen ? 'translate-y-2 rotate-45' : ''
+            className={`absolute left-2 right-2 top-1/2 h-px bg-[#f5f5f0] transition-transform duration-300 ${
+              menuOpen ? 'rotate-45' : '-translate-y-2'
             }`}
           />
           <span
-            className={`block w-6 h-px bg-[#f5f5f0] transition-opacity duration-300 ${
+            className={`absolute left-2 right-2 top-1/2 h-px bg-[#f5f5f0] transition-opacity duration-300 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           />
           <span
-            className={`block w-6 h-px bg-[#f5f5f0] transition-transform duration-300 ${
-              menuOpen ? '-translate-y-2 -rotate-45' : ''
+            className={`absolute left-2 right-2 top-1/2 h-px bg-[#f5f5f0] transition-transform duration-300 ${
+              menuOpen ? '-rotate-45' : 'translate-y-2'
             }`}
           />
         </button>
       </nav>
 
       {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#0a0a0a] border-t border-[#1f1f1f] px-6 py-6">
-          <ul className="flex flex-col gap-5" role="list">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <button
-                  onClick={() => handleNavClick(link.href)}
-                  className="font-display text-3xl text-[#f5f5f0] tracking-wider hover:text-accent-violet transition-colors w-full text-left"
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
+      <div
+        className={`fixed top-16 left-0 right-0 h-[calc(100dvh-4rem)] z-40 md:hidden bg-[#0a0a0a] transition-transform duration-500 ease-out ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <div className="grain-overlay" aria-hidden="true" />
+        <div className="relative z-[2] h-full px-6 pt-10 pb-10 flex flex-col">
+          <ul className="flex flex-col gap-6" role="list">
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace('#', '')
+              const isActive = activeSection === sectionId
+              return (
+                <li key={link.href}>
+                  <button
+                    onClick={() => handleNavClick(link.href)}
+                    className={`font-display text-5xl tracking-wider uppercase transition-colors w-full text-left ${
+                      isActive ? 'text-accent-violet' : 'text-[#f5f5f0] hover:text-accent-violet'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              )
+            })}
           </ul>
         </div>
-      )}
+      </div>
     </header>
   )
 }
