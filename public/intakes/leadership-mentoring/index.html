@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness Coaching Intake — RichM Co.</title>
+    <title>Leadership Mentoring Inquiry — RichM Co.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,10 +16,10 @@
         --bg: #f5f5f0;
         --surface: #ffffff;
         --surface-2: #ecece6;
-        --accent: #7f68d8;
-        --accent-strong: #4f3b9a;
-        --accent-soft: #f1effb;
-        --accent-mid: #d4cbed;
+        --accent: #b28a3c;
+        --accent-strong: #7a5d28;
+        --accent-soft: #f7f1e4;
+        --accent-mid: #e4d0a3;
         --text: #1e1e1e;
         --text-muted: #6b6760;
         --border: #ddd8cf;
@@ -37,7 +37,7 @@
 
       body {
         background:
-          radial-gradient(circle at 50% -10%, rgba(127, 104, 216, 0.12), transparent 32rem),
+          radial-gradient(circle at 50% -10%, rgba(178, 138, 60, 0.13), transparent 32rem),
           var(--page);
         color: var(--text);
         font-family: "Inter", sans-serif;
@@ -71,7 +71,7 @@
 
       .header h1 {
         font-family: "Bebas Neue", sans-serif;
-        font-size: clamp(2.65rem, 5.8vw, 4.35rem);
+        font-size: clamp(2.45rem, 4.75vw, 3.55rem);
         font-weight: 400;
         letter-spacing: 0.03em;
         line-height: 0.9;
@@ -83,7 +83,9 @@
 
       @media (max-width: 620px) {
         .header h1 {
-          white-space: normal;
+          font-size: clamp(1.9rem, 9.1vw, 2.35rem);
+          letter-spacing: 0.02em;
+          white-space: nowrap;
         }
       }
 
@@ -167,9 +169,6 @@
           margin-bottom: 0;
         }
 
-        .card--spaced-mobile .conditional.field.visible {
-          margin-top: 20px;
-        }
       }
 
       /* Field */
@@ -217,26 +216,12 @@
         display: none;
       }
 
-      .signature-wrap .field-error {
-        margin-top: 8px;
-      }
-
-      .signature-error-slot {
-        min-height: 1.4em;
-        visibility: hidden;
-      }
-
-      .signature-error-slot:not(:empty) {
-        visibility: visible;
-      }
-
       .field.is-invalid
         :is(
           input:not([type="radio"]),
           textarea,
           select,
-          .custom-select-trigger,
-          .sig-canvas
+          .custom-select-trigger
         ) {
         border-color: #c89999;
       }
@@ -246,8 +231,7 @@
           input:not([type="radio"]),
           textarea,
           select,
-          .custom-select-trigger,
-          .sig-canvas
+          .custom-select-trigger
         ):focus {
         box-shadow: 0 0 0 3px rgba(201, 153, 153, 0.16);
       }
@@ -277,7 +261,7 @@
       select:focus {
         outline: none;
         border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(127, 104, 216, 0.14);
+        box-shadow: 0 0 0 3px rgba(178, 138, 60, 0.16);
       }
 
       textarea {
@@ -370,7 +354,7 @@
       .custom-select-trigger:focus-visible {
         outline: none;
         border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(127, 104, 216, 0.14);
+        box-shadow: 0 0 0 3px rgba(178, 138, 60, 0.16);
       }
 
       .custom-select-trigger:active {
@@ -536,83 +520,11 @@
         text-align: center;
       }
 
-      /* Consent block */
-      .consent-block {
-        background: var(--accent-soft);
-        border: 1px solid var(--accent-mid);
-        border-radius: var(--radius);
-        padding: 20px;
-        margin-bottom: 20px;
-      }
-
-      .consent-block p {
-        font-size: 13px;
-        line-height: 1.7;
-        color: var(--text-muted);
-      }
-
-      /* Signature */
-      .signature-wrap {
-        margin-top: 16px;
-        touch-action: none;
-      }
-
-      .signature-pad {
-        width: 100%;
-      }
-
-      .sig-canvas {
-        border: 1.5px solid var(--border);
-        border-radius: var(--radius);
-        background: var(--surface);
-        width: 100%;
-        height: 100px;
-        cursor: crosshair;
-        touch-action: none;
-        display: block;
-      }
-
-      html.signature-locked,
-      body.signature-locked {
-        overflow: hidden;
-      }
-
-      body.signature-locked {
-        position: fixed;
-        left: 0;
-        right: 0;
-        width: 100%;
-      }
-
-      .sig-actions {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        margin-top: 8px;
-      }
-
-      .sig-clear {
-        font-size: 12px;
-        color: var(--accent-strong);
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 0;
-        border-radius: 4px;
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-        transition: transform 0.1s ease;
-      }
-
-      .sig-clear:active {
-        transform: scale(0.97);
-      }
-
       /* Submit */
       .submit-btn {
         width: 100%;
         padding: 16px;
-        background: var(--accent-strong);
+        background: #9a7431;
         color: white;
         border: none;
         border-radius: var(--radius);
@@ -631,11 +543,11 @@
       }
 
       .submit-btn:hover {
-        background: #5f47b3;
+        background: #ad8338;
       }
 
       .submit-btn:active {
-        background: #3f2a7d;
+        background: #73531e;
         transform: scale(0.992);
       }
 
@@ -670,74 +582,17 @@
         line-height: 1.65;
       }
 
-      /* Note */
-      .form-note {
-        text-align: center;
-        font-size: 12px;
-        color: #a0a0a0;
-        margin-top: 16px;
-      }
-
-      .signature-hint {
-        font-size: 13px;
-        color: var(--text-muted);
-        margin-bottom: 14px;
-      }
-
       #intakeForm.is-hidden {
         display: none;
       }
 
-      /* Conditional sections */
-      .conditional.field {
-        display: grid;
-        grid-template-rows: 0fr;
-        margin-top: 0;
-        margin-bottom: 0;
-        transition:
-          grid-template-rows 0.22s ease,
-          margin-top 0.22s ease,
-          margin-bottom 0.22s ease;
-      }
-
-      .conditional.field.visible {
-        grid-template-rows: 1fr;
-        margin-top: 16px;
-        margin-bottom: 16px;
-      }
-
-      .conditional-content {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        min-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-3px);
-        transition:
-          opacity 0.22s ease,
-          transform 0.22s ease;
-      }
-
-      .conditional.field.visible .conditional-content {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .conditional.field:not(.visible) .conditional-content {
-        pointer-events: none;
-      }
-
       @media (prefers-reduced-motion: reduce) {
-        .conditional.field,
-        .conditional-content,
         .custom-select-list,
         .custom-select-trigger::after {
           transition: none;
         }
 
-        .submit-btn:active,
-        .sig-clear:active {
+        .submit-btn:active {
           transform: none;
         }
       }
@@ -747,10 +602,10 @@
     <div class="wrapper">
       <div class="header">
         <p class="header-eyebrow">RichM Co.</p>
-        <h1>Fitness Coaching Intake</h1>
+        <h1>Leadership Mentoring Inquiry</h1>
         <p class="header-copy">
-          Please take your time and fill this out as thoroughly as possible.
-          Your answers help us build the right plan for you.
+          Tell me where you are now and what kind of support would be most
+          helpful.
         </p>
         <div class="divider"></div>
       </div>
@@ -761,7 +616,11 @@
         method="POST"
         novalidate
       >
-        <input type="hidden" name="Service Interest" value="Fitness Coaching" />
+        <input
+          type="hidden"
+          name="Service Interest"
+          value="Leadership Mentoring"
+        />
 
         <!-- Personal Info -->
         <div class="card">
@@ -842,44 +701,45 @@
           </div>
         </div>
 
-        <!-- Coaching Type -->
+        <!-- Mentoring Goals -->
         <div class="card card--spaced-mobile">
-          <div class="card-title">Coaching Goals</div>
+          <div class="card-title">Mentoring Goals</div>
 
           <div class="field">
-            <label>What type of coaching are you looking for?</label>
+            <label>What kind of leadership support are you looking for?</label>
             <div class="pill-group pill-group--coaching">
               <input
                 type="radio"
-                name="Coaching Type"
-                id="nutritionOnly"
-                value="Nutrition Only"
+                name="Mentoring Type"
+                id="newLeader"
+                value="New or Emerging Leader"
               />
-              <label for="nutritionOnly">Nutrition Only</label>
+              <label for="newLeader">New / Emerging</label>
               <input
                 type="radio"
-                name="Coaching Type"
-                id="nutritionTraining"
-                value="Nutrition + Training"
+                name="Mentoring Type"
+                id="experiencedLeader"
+                value="Experienced Leader"
               />
-              <label for="nutritionTraining">Nutrition + Training</label>
+              <label for="experiencedLeader">Experienced Leader</label>
             </div>
           </div>
 
           <div class="field">
-            <label>Best commitment for you</label>
+            <label>Current leadership role</label>
             <div class="select-wrap">
-              <select name="Commitment">
+              <select name="Current Leadership Role">
                 <option value="">Select an option</option>
-                <option>Month to Month</option>
-                <option>3 Months</option>
-                <option>6 Months</option>
+                <option>Individual Contributor</option>
+                <option>New Manager / Team Lead</option>
+                <option>Experienced Manager</option>
+                <option>Business Owner / Executive</option>
               </select>
             </div>
           </div>
 
           <div class="field">
-            <label>What day/time is ideal for your first 1:1 video call?</label>
+            <label>What day/time is ideal for your first 1:1 call?</label>
             <input
               type="text"
               name="Ideal Call Time"
@@ -888,350 +748,106 @@
           </div>
         </div>
 
-        <!-- Nutrition -->
+        <!-- Leadership Context -->
         <div class="card card--spaced-mobile">
-          <div class="card-title">Nutrition</div>
+          <div class="card-title">Leadership Context</div>
 
           <div class="field">
-            <label>Are you open to structured nutrition?</label>
-            <div class="pill-group">
-              <input
-                type="radio"
-                name="Structured Nutrition"
-                id="structYes"
-                value="Yes"
-              />
-              <label for="structYes">Yes</label>
-              <input
-                type="radio"
-                name="Structured Nutrition"
-                id="structNo"
-                value="No"
-              />
-              <label for="structNo">No</label>
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Food allergies?</label>
-            <div class="pill-group">
-              <input
-                type="radio"
-                name="Food Allergies"
-                id="allergyYes"
-                value="Yes"
-              />
-              <label for="allergyYes">Yes</label>
-              <input
-                type="radio"
-                name="Food Allergies"
-                id="allergyNo"
-                value="No"
-              />
-              <label for="allergyNo">No</label>
-            </div>
-          </div>
-
-          <div id="allergyDetails" class="conditional field">
-            <div class="conditional-content">
-              <label for="allergyDetailsInput">Allergy details</label>
-              <textarea
-                id="allergyDetailsInput"
-                name="Food Allergy Details"
-                placeholder="List allergies, sensitivities, or anything else we should know"
-              ></textarea>
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Experience level with nutrition</label>
-            <div class="pill-group">
-              <input
-                type="radio"
-                name="Nutrition Experience"
-                id="nutBeg"
-                value="Beginner"
-              />
-              <label for="nutBeg">Beginner</label>
-              <input
-                type="radio"
-                name="Nutrition Experience"
-                id="nutInt"
-                value="Intermediate"
-              />
-              <label for="nutInt">Intermediate</label>
-              <input
-                type="radio"
-                name="Nutrition Experience"
-                id="nutAdv"
-                value="Advanced"
-              />
-              <label for="nutAdv">Advanced</label>
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Current nutrition plan</label>
+            <label>Tell me about your team or leadership environment</label>
             <textarea
-              name="Current Nutrition Plan"
-              placeholder="Describe what you're currently doing, or 'none'"
+              name="Leadership Environment"
+              placeholder="Role, team size, business context, or the situation you're navigating"
             ></textarea>
           </div>
 
           <div class="field">
-            <label>History of disordered eating?</label>
+            <label>What are you trying to improve right now?</label>
+            <textarea
+              name="Leadership Improvement Area"
+              placeholder="Communication, confidence, delegation, accountability, conflict, career growth, etc."
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label>Leadership experience level</label>
             <div class="pill-group">
               <input
                 type="radio"
-                name="Disordered Eating History"
-                id="deYes"
-                value="Yes"
+                name="Leadership Experience"
+                id="leadNew"
+                value="New to Leadership"
               />
-              <label for="deYes">Yes</label>
+              <label for="leadNew">New</label>
               <input
                 type="radio"
-                name="Disordered Eating History"
-                id="deNo"
-                value="No"
+                name="Leadership Experience"
+                id="leadGrowing"
+                value="Growing Leader"
               />
-              <label for="deNo">No</label>
-            </div>
-          </div>
-
-          <div id="disorderedEatingDetails" class="conditional field">
-            <div class="conditional-content">
-              <label for="disorderedEatingDetailsInput"
-                >Eating history details</label
-              >
-              <textarea
-                id="disorderedEatingDetailsInput"
-                name="Disordered Eating History Details"
-                placeholder="Share any context you are comfortable providing"
-              ></textarea>
+              <label for="leadGrowing">Growing</label>
+              <input
+                type="radio"
+                name="Leadership Experience"
+                id="leadSeasoned"
+                value="Seasoned Leader"
+              />
+              <label for="leadSeasoned">Seasoned</label>
             </div>
           </div>
         </div>
 
-        <!-- Training -->
+        <!-- Development Priorities -->
         <div class="card card--spaced-mobile">
-          <div class="card-title">Training</div>
-
+          <div class="card-title">Development Priorities</div>
           <div class="field">
-            <label>Experience level with training</label>
-            <div class="pill-group">
-              <input
-                type="radio"
-                name="Training Experience"
-                id="trBeg"
-                value="Beginner (0–2 years)"
-              />
-              <label for="trBeg">Beginner (0–2 yrs)</label>
-              <input
-                type="radio"
-                name="Training Experience"
-                id="trInt"
-                value="Intermediate (2–5 years)"
-              />
-              <label for="trInt">Intermediate (2–5 yrs)</label>
-              <input
-                type="radio"
-                name="Training Experience"
-                id="trAdv"
-                value="Advanced (6+ years)"
-              />
-              <label for="trAdv">Advanced (6+ yrs)</label>
-            </div>
-          </div>
-
-          <div class="grid-2">
-            <div class="field">
-              <label>Cardio days per week</label>
-              <div class="select-wrap">
-                <select name="Cardio Days Per Week">
-                  <option value="">Select</option>
-                  <option>0</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                </select>
-              </div>
-            </div>
-            <div class="field">
-              <label>Preferred training days per week</label>
-              <div class="select-wrap">
-                <select name="Preferred Training Days">
-                  <option value="">Select</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Current training split</label>
+            <label>Biggest leadership challenge right now</label>
             <textarea
-              name="Current Training Split"
-              placeholder="Describe your current training split, or 'none'"
+              name="Biggest Leadership Challenge"
+              placeholder="Describe the challenge, pressure point, or decision you're working through"
             ></textarea>
           </div>
 
           <div class="field">
-            <label>Previous or current injuries</label>
+            <label>What would a successful outcome look like?</label>
             <textarea
-              name="Injuries"
-              placeholder="List any injuries or areas of concern, or 'none'"
-            ></textarea>
-          </div>
-        </div>
-
-        <!-- Health History -->
-        <div class="card card--spaced-mobile">
-          <div class="card-title">Health History</div>
-
-          <div class="field">
-            <label>Family health history & predispositions</label>
-            <textarea
-              name="Family Health History"
-              placeholder="Heart disease, diabetes, thyroid conditions, etc."
+              name="Successful Outcome"
+              placeholder="Describe what you want to feel, do, or lead differently"
             ></textarea>
           </div>
 
           <div class="field">
-            <label>Previous and current medications</label>
+            <label>Anything else I should know?</label>
             <textarea
-              name="Medications"
-              placeholder="List any medications or supplements, or 'none'"
-            ></textarea>
-          </div>
-
-          <div class="field">
-            <label>Additional info I should know</label>
-            <textarea
-              name="Additional Info"
-              placeholder="Anything else that would help me support you best"
+              name="Additional Leadership Context"
+              placeholder="Share any constraints, timeline notes, or extra context"
             ></textarea>
           </div>
         </div>
 
-        <!-- Readiness -->
-        <div class="card">
-          <div class="card-title">Commitment & Readiness</div>
-          <div class="field">
-            <label
-              >I am physically and financially ready to begin
-              <span class="req">*</span></label
-            >
-            <div class="pill-group">
-              <input
-                type="radio"
-                name="Ready to Begin"
-                id="readyYes"
-                value="Yes"
-                aria-required="true"
-              />
-              <label for="readyYes">Yes, I'm ready</label>
-              <input
-                type="radio"
-                name="Ready to Begin"
-                id="readyNo"
-                value="No"
-              />
-              <label for="readyNo">Not yet</label>
-            </div>
-          </div>
-        </div>
-
-        <!-- Consent & Signature -->
-        <div class="consent-block">
-          <p>
-            I consent to sharing personal and medical information and understand
-            that no coaching materials or guidance will be provided until the
-            consultation is complete, payment is made, and all legal
-            documentation (including this consent form) is signed. I acknowledge
-            that my information, including images, will remain confidential
-            unless I provide explicit consent. By signing, I confirm I am ready
-            for RichM Co.'s services.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-title">Signature <span class="req">*</span></div>
-          <p class="signature-hint">Sign below using your mouse or finger.</p>
-          <div class="field">
-            <div class="signature-wrap">
-              <div class="signature-pad">
-                <canvas
-                  id="sigCanvas"
-                  class="sig-canvas"
-                  width="600"
-                  height="100"
-                ></canvas>
-              </div>
-              <p
-                class="field-error signature-error-slot"
-                role="alert"
-                aria-live="polite"
-              ></p>
-              <input type="hidden" id="sigData" name="Signature" />
-              <div class="sig-actions">
-                <button type="button" class="sig-clear" onclick="clearSig()">
-                  Clear signature
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit Intake Form</button>
+        <button type="submit" class="submit-btn">Submit Inquiry</button>
         <p class="form-error" id="formError" role="alert" hidden></p>
-        <p class="form-note">
-          Your information is kept confidential and will only be used by your
-          coach.
-        </p>
       </form>
 
       <div class="success-msg" id="successMsg">
-        <h2>You're all set.</h2>
+        <h2>Thanks for reaching out.</h2>
         <p>
-          Your intake form has been received. I'll be in touch within 24–48
-          hours to schedule your session.
+          Your inquiry has been received. I'll be in touch within 24–48 hours.
         </p>
       </div>
     </div>
 
     <script>
-      // Signature pad
-      const canvas = document.getElementById("sigCanvas");
-      const ctx = canvas.getContext("2d");
-      let drawing = false;
-      let hasSig = false;
-      let signatureImageData = "";
-      let signatureScrollY = 0;
       const form = document.getElementById("intakeForm");
       const emailInput = document.getElementById("email");
       const phoneInput = document.getElementById("phone");
       const formError = document.getElementById("formError");
       const successMsg = document.getElementById("successMsg");
       const submitBtn = form.querySelector(".submit-btn");
-      const sigDataInput = document.getElementById("sigData");
 
       function clearFieldError(field) {
         if (!field) return;
         field.classList.remove("is-invalid");
         field.querySelectorAll(".field-error").forEach((error) => {
-          if (error.classList.contains("signature-error-slot")) {
-            error.textContent = "";
-            return;
-          }
-
           error.remove();
         });
       }
@@ -1255,7 +871,7 @@
       }
 
       function resetSubmitButton() {
-        submitBtn.textContent = "Submit Intake Form";
+        submitBtn.textContent = "Submit Inquiry";
         submitBtn.disabled = false;
       }
 
@@ -1281,135 +897,6 @@
         return value.replace(/\D/g, "").length === 10;
       }
 
-      function lockSignatureScroll() {
-        if (document.body.classList.contains("signature-locked")) return;
-        signatureScrollY = window.scrollY;
-        document.documentElement.classList.add("signature-locked");
-        document.body.classList.add("signature-locked");
-        document.body.style.top = `-${signatureScrollY}px`;
-      }
-
-      function unlockSignatureScroll() {
-        if (!document.body.classList.contains("signature-locked")) return;
-        document.documentElement.classList.remove("signature-locked");
-        document.body.classList.remove("signature-locked");
-        document.body.style.top = "";
-        window.scrollTo(0, signatureScrollY);
-      }
-
-      function endSignatureStroke() {
-        if (!drawing) return;
-        drawing = false;
-        unlockSignatureScroll();
-        saveSignature();
-      }
-
-      function configureSignatureCanvas(dpr) {
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        ctx.scale(dpr, dpr);
-        ctx.strokeStyle = "#1E1E1E";
-        ctx.lineWidth = 1.8;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-      }
-
-      function restoreSignature(dataUrl) {
-        if (!dataUrl) return;
-
-        const image = new Image();
-        image.onload = () => {
-          const dpr = window.devicePixelRatio || 1;
-          ctx.drawImage(image, 0, 0, canvas.width / dpr, canvas.height / dpr);
-        };
-        image.src = dataUrl;
-      }
-
-      function resizeCanvas() {
-        const signatureData = signatureImageData;
-        const pad = canvas.parentElement;
-        const rect = pad.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
-        const width = rect.width;
-        const height = 100;
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        canvas.style.width = "100%";
-        canvas.style.height = `${height}px`;
-        configureSignatureCanvas(dpr);
-        restoreSignature(signatureData);
-      }
-
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-
-      function getPos(e) {
-        const r = canvas.getBoundingClientRect();
-        const src = e.touches ? e.touches[0] : e;
-        return { x: src.clientX - r.left, y: src.clientY - r.top };
-      }
-
-      function continueSignatureStroke(e) {
-        if (!drawing) return;
-        const p = getPos(e);
-        ctx.lineTo(p.x, p.y);
-        ctx.stroke();
-        hasSig = true;
-        clearFieldError(canvas.closest(".field"));
-      }
-
-      canvas.addEventListener("mousedown", (e) => {
-        drawing = true;
-        const p = getPos(e);
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-      });
-      canvas.addEventListener("mousemove", (e) => {
-        continueSignatureStroke(e);
-      });
-      canvas.addEventListener("mouseup", endSignatureStroke);
-      canvas.addEventListener(
-        "touchstart",
-        (e) => {
-          e.preventDefault();
-          lockSignatureScroll();
-          drawing = true;
-          const p = getPos(e);
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-        },
-        { passive: false },
-      );
-      canvas.addEventListener(
-        "touchmove",
-        (e) => {
-          e.preventDefault();
-          continueSignatureStroke(e);
-        },
-        { passive: false },
-      );
-      canvas.addEventListener(
-        "touchend",
-        (e) => {
-          e.preventDefault();
-          endSignatureStroke();
-        },
-        { passive: false },
-      );
-      canvas.addEventListener("touchcancel", endSignatureStroke);
-
-      function saveSignature() {
-        signatureImageData = canvas.toDataURL();
-        sigDataInput.value = "Signed";
-      }
-
-      function clearSig() {
-        const dpr = window.devicePixelRatio || 1;
-        ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
-        signatureImageData = "";
-        sigDataInput.value = "";
-        hasSig = false;
-      }
-
       function resizeAutoTextarea(textarea) {
         textarea.style.height = "auto";
         textarea.style.height = `${textarea.scrollHeight}px`;
@@ -1429,30 +916,7 @@
         });
       }
 
-      function bindYesConditional(name, elementId) {
-        const section = document.getElementById(elementId);
-
-        document.querySelectorAll(`input[name="${name}"]`).forEach((radio) => {
-          radio.addEventListener("change", () => {
-            const isVisible = radio.value === "Yes";
-            section.classList.toggle("visible", isVisible);
-
-            if (isVisible) {
-              section.querySelectorAll("textarea").forEach((textarea) => {
-                requestAnimationFrame(() => resizeAutoTextarea(textarea));
-              });
-            }
-          });
-        });
-      }
-
       initAutoTextareas();
-
-      bindYesConditional("Food Allergies", "allergyDetails");
-      bindYesConditional(
-        "Disordered Eating History",
-        "disorderedEatingDetails",
-      );
 
       function initCustomSelects() {
         const customSelects = [];
@@ -1639,30 +1103,16 @@
 
       initCustomSelects();
 
-      function setFieldError(field, message, insertAfterSelector) {
+      function setFieldError(field, message) {
         if (!field) return;
         clearFieldError(field);
         field.classList.add("is-invalid");
-        const anchor = insertAfterSelector
-          ? field.querySelector(insertAfterSelector)
-          : null;
-        const reusableError = anchor
-          ? field.querySelector(".signature-error-slot")
-          : null;
-        const error = reusableError || document.createElement("p");
+        const error = document.createElement("p");
 
-        if (!reusableError) {
-          error.className = "field-error";
-          error.setAttribute("role", "alert");
-        }
-
+        error.className = "field-error";
+        error.setAttribute("role", "alert");
         error.textContent = message;
-
-        if (anchor && !reusableError) {
-          anchor.insertAdjacentElement("afterend", error);
-        } else if (!reusableError) {
-          field.appendChild(error);
-        }
+        field.appendChild(error);
       }
 
       function clearFormErrors() {
@@ -1688,26 +1138,6 @@
         if (phoneInput.value.trim() && !isValidPhone(phoneInput.value)) {
           setFieldError(phoneField, "Enter a valid phone number");
           firstInvalidField ??= phoneField;
-        }
-
-        const readyField = document
-          .getElementById("readyYes")
-          .closest(".field");
-        if (!form.querySelector('input[name="Ready to Begin"]:checked')) {
-          setFieldError(readyField, "This field is required");
-          firstInvalidField ??= readyField;
-        }
-
-        const signatureField = document
-          .querySelector(".signature-wrap")
-          ?.closest(".field");
-        if (!hasSig) {
-          setFieldError(
-            signatureField,
-            "This field is required",
-            ".signature-pad",
-          );
-          firstInvalidField ??= signatureField;
         }
 
         if (firstInvalidField) {

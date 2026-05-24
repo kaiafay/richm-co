@@ -51,7 +51,7 @@ export function CTA() {
         </p>
 
         <a
-          href="#hero"
+          href="/intakes"
           className={`
               inline-block font-sans text-sm font-medium tracking-widest uppercase
               bg-transparent border border-accent-violet text-[#f5f5f0]
@@ -63,7 +63,7 @@ export function CTA() {
               ${buttonAnimated ? "cta-button-attention" : ""}
             `}
         >
-          Let's Talk
+          Get Started
         </a>
       </div>
     </section>

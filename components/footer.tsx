@@ -28,7 +28,7 @@ export function Footer() {
       aria-label="Site footer"
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="flex items-center justify-between gap-4">
           {/* Wordmark */}
           <a
             href="#"
@@ -40,7 +40,7 @@ export function Footer() {
           </a>
 
           {/* Social + copyright */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <a
               href="https://instagram.com"
               target="_blank"
@@ -50,7 +50,7 @@ export function Footer() {
             >
               <InstagramIcon />
             </a>
-            <p className="font-sans text-xs text-[#3a3a3a]">
+            <p className="whitespace-nowrap font-sans text-xs text-[#3a3a3a]">
               &copy; {new Date().getFullYear()} RichM Co.
             </p>
           </div>

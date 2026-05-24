@@ -51,7 +51,7 @@ export function Hero() {
 
           <div className="hero-cta relative z-10 mt-6 lg:mt-8">
             <a
-              href="#contact"
+              href="/intakes"
               className="
                 inline-block font-sans text-sm font-medium tracking-widest uppercase
                 bg-transparent border border-accent-violet text-[#f5f5f0]
