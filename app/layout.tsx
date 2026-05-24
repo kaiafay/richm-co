@@ -26,8 +26,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'RichM Co. | Coaching & Consulting',
   description:
-    'Rich McCauley — Personal Training, Sales Consulting, and Life Coaching for people who are done playing small.',
-  keywords: ['personal training', 'sales consulting', 'life coaching', 'Rich McCauley', 'RichM Co'],
+    'Rich McCauley — Fitness Coaching, Sales Consulting, and Leadership Mentoring for people ready to raise their standard.',
+  keywords: ['fitness coaching', 'sales consulting', 'leadership mentoring', 'Rich McCauley', 'RichM Co'],
 }
 
 export default function RootLayout({

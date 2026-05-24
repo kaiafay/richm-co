@@ -7,7 +7,7 @@ import { IntakePicker } from "@/components/intake-picker";
 export const metadata: Metadata = {
   title: "Inquiries | RichM Co.",
   description:
-    "Choose the RichM Co. inquiry path for fitness coaching, sales consulting, or leadership mentoring.",
+    "Choose the right RichM Co. inquiry for fitness coaching, sales consulting, or leadership mentoring.",
 };
 
 export default function IntakesPage() {
