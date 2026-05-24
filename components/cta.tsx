@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-const CALENDLY_URL = 'https://calendly.com/placeholder'
-
 export function CTA() {
   const sectionRef = useRef<HTMLElement>(null)
   const [buttonAnimated, setButtonAnimated] = useState(false)
@@ -52,9 +50,7 @@ export function CTA() {
         </p>
 
         <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#hero"
           className={`
               inline-block font-sans text-sm font-medium tracking-widest uppercase
               bg-transparent border border-accent-violet text-[#f5f5f0]

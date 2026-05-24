@@ -1,7 +1,5 @@
 'use client'
 
-const CALENDLY_URL = 'https://calendly.com/placeholder'
-
 export function Hero() {
   return (
     <section
@@ -54,9 +52,7 @@ export function Hero() {
 
           <div className="hero-cta relative z-10 mt-6 lg:mt-8">
             <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className="
                 inline-block font-sans text-sm font-medium tracking-widest uppercase
                 bg-transparent border border-accent-violet text-[#f5f5f0]

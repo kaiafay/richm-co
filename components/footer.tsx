@@ -1,12 +1,5 @@
 'use client'
 
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
-]
-
 function InstagramIcon() {
   return (
     <svg
@@ -29,12 +22,6 @@ function InstagramIcon() {
 }
 
 export function Footer() {
-  const handleNavClick = (href: string) => {
-    const id = href.replace('#', '')
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <footer
       className="bg-[#0a0a0a] border-t border-[#1f1f1f] py-12"
@@ -51,22 +38,6 @@ export function Footer() {
           >
             RichM Co.
           </a>
-
-          {/* Nav links */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap gap-x-8 gap-y-3" role="list">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="font-sans text-xs tracking-widest uppercase text-[#6b6b6b] hover:text-accent-violet transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
 
           {/* Social + copyright */}
           <div className="flex items-center gap-6">
