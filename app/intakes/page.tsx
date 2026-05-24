@@ -24,7 +24,7 @@ export default function IntakesPage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-[2] max-w-[1200px] mx-auto px-6 lg:px-12">
+        <div className="intake-page-enter relative z-[2] max-w-[1200px] mx-auto px-6 lg:px-12">
           <header className="flex items-center justify-between gap-6 mb-20">
             <Link
               href="/"
@@ -35,7 +35,7 @@ export default function IntakesPage() {
             </Link>
 
             <Link
-              href="/#contact"
+              href="/"
               className="font-sans text-xs tracking-[0.22em] uppercase text-[#a0a0a0] hover:text-accent-violet transition-colors"
             >
               Back

@@ -81,10 +81,10 @@ export function Nav() {
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className={`font-sans text-sm tracking-widest uppercase transition-colors duration-200 ${
+                  className={`relative font-sans text-sm tracking-widest uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-violet after:transition-transform after:duration-200 ${
                     isActive
                       ? 'text-accent-violet'
-                      : 'text-[#a0a0a0] hover:text-accent-violet'
+                      : 'text-[#a0a0a0] hover:text-[#f5f5f0] hover:after:scale-x-100 focus-visible:after:scale-x-100'
                   }`}
                 >
                   {link.label}
@@ -137,8 +137,10 @@ export function Nav() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className={`font-display text-5xl tracking-wider uppercase transition-colors w-full text-left ${
-                      isActive ? 'text-accent-violet' : 'text-[#f5f5f0] hover:text-accent-violet'
+                    className={`relative w-fit font-display text-5xl tracking-wider uppercase transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-violet after:transition-transform after:duration-200 ${
+                      isActive
+                        ? 'text-accent-violet'
+                        : 'text-[#f5f5f0] hover:after:scale-x-100 focus-visible:after:scale-x-100'
                     }`}
                   >
                     {link.label}
@@ -147,6 +149,14 @@ export function Nav() {
               )
             })}
           </ul>
+
+          <a
+            href="/intakes"
+            onClick={() => setMenuOpen(false)}
+            className="mt-auto inline-flex w-fit font-display text-4xl uppercase tracking-wider text-[#f5f5f0] underline decoration-accent-violet decoration-1 underline-offset-8 transition-colors hover:text-accent-violet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-violet"
+          >
+            Work With Me
+          </a>
         </div>
       </div>
     </header>

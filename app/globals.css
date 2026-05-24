@@ -113,12 +113,24 @@
   }
 }
 
+@keyframes intakePageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-line-1 { animation: heroFadeUp 0.56s ease-out 0.08s forwards; opacity: 0; }
 .hero-line-2 { animation: heroFadeUp 0.56s ease-out 0.2s forwards; opacity: 0; }
 .hero-line-3 { animation: heroFadeUp 0.56s ease-out 0.32s forwards; opacity: 0; }
 .hero-subhead { animation: heroFadeUp 0.56s ease-out 0.46s forwards; opacity: 0; }
 .hero-cta { animation: heroFadeUp 0.56s ease-out 0.58s forwards; opacity: 0; }
 .hero-image-enter { animation: heroImageSettle 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; opacity: 0; transform-origin: center; }
+.intake-page-enter { animation: intakePageEnter 320ms ease-out forwards; opacity: 0; }
 
 @media (min-width: 1024px) {
   .hero-line-1 { animation: heroSlideInLeft 0.9s ease-out 0.12s forwards; opacity: 0; }
@@ -149,6 +161,7 @@
   .hero-subhead,
   .hero-cta,
   .hero-image-enter,
+  .intake-page-enter,
   .cta-button-attention {
     animation: none;
     opacity: 1;
