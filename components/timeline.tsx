@@ -226,7 +226,7 @@ export function Timeline() {
             ))}
           </div>
 
-          <div className="hidden xl:block h-[840px]">
+          <div className="hidden xl:block h-[840px] xl:-mt-8">
             <div className="timeline-image-bleed relative h-full w-full overflow-hidden">
               <img
                 src="/images/fitness.webp"
