@@ -1,28 +1,28 @@
-'use client'
+"use client";
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react";
 
 export function CTA() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [buttonAnimated, setButtonAnimated] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null);
+  const [buttonAnimated, setButtonAnimated] = useState(false);
 
   useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
+    const section = sectionRef.current;
+    if (!section) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setButtonAnimated(true)
-          observer.unobserve(section)
+          setButtonAnimated(true);
+          observer.unobserve(section);
         }
       },
-      { threshold: 0.7 }
-    )
+      { threshold: 0.7 },
+    );
 
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
@@ -42,11 +42,12 @@ export function CTA() {
         />
 
         <h2 className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#f5f5f0] uppercase tracking-wide leading-none text-balance mb-8">
-          Ready to Do the Work?
+          Ready to Get to Work?
         </h2>
 
         <p className="font-serif italic text-[#a0a0a0] text-xl md:text-2xl mb-14 max-w-2xl mx-auto">
-          One conversation is all it takes to figure out if this is the right fit.
+          Schedule a free call to talk through where you are, what you&apos;re
+          after, and whether working together makes sense.
         </p>
 
         <a
@@ -59,12 +60,12 @@ export function CTA() {
               transition-colors duration-200
               hover:bg-accent-purple-hover hover:border-accent-violet hover:text-[#f5f5f0]
               focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet
-              ${buttonAnimated ? 'cta-button-attention' : ''}
+              ${buttonAnimated ? "cta-button-attention" : ""}
             `}
         >
-          Book a Free Call
+          Let's Talk
         </a>
       </div>
     </section>
-  )
+  );
 }

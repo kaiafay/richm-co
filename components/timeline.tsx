@@ -1,33 +1,34 @@
-'use client'
+"use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const milestones = [
   {
     title: "Associate's Degree, Human Movement & Exercise Science",
-    description: "Foundation in how the body actually works.",
+    description:
+      "The starting point for a career built around how people move, think, perform, and change.",
   },
   {
     title: "20 Years in the Fitness Industry",
-    description: "Trained bodies at every level, from first-timers to competitive athletes.",
+    description:
+      "Trained clients at every level, from complete beginners to advanced lifters.",
   },
   {
-    title: "Entered Corporate Sales",
-    description: "Took the same discipline from the gym floor into sales floors.",
-  },
-  {
-    title: "10+ Years in Sales Leadership",
-    description: "Built teams, hit numbers, figured out what actually moves people.",
+    title: "10+ Years in Sales & Leadership",
+    description:
+      "I've worked with leaders across multiple lines of business, rebuilt sales processes, and developed training that shaped how teams sell and lead.",
   },
   {
     title: "Sales Transformation Analyst, Royal Caribbean",
-    description: "Currently leading enterprise-level sales strategy for one of the world's largest cruise lines.",
+    description:
+      "Current role focused on sales strategy, training content, and performance support across global consumer-facing teams.",
   },
   {
-    title: "Created Sales Mentorship Program",
-    description: "Developed training content and upskill workshops for frontline reps through upper leadership.",
+    title: "Global Sales Mentorship Programs",
+    description:
+      "Seven years building programs that help emerging leaders grow into the role instead of just carrying the title.",
   },
-]
+];
 
 function MilestoneItem({
   milestone,
@@ -35,10 +36,10 @@ function MilestoneItem({
   active,
   setItemRef,
 }: {
-  milestone: (typeof milestones)[number]
-  index: number
-  active: boolean
-  setItemRef: (index: number, el: HTMLDivElement | null) => void
+  milestone: (typeof milestones)[number];
+  index: number;
+  active: boolean;
+  setItemRef: (index: number, el: HTMLDivElement | null) => void;
 }) {
   return (
     <div
@@ -50,9 +51,10 @@ function MilestoneItem({
         <div
           className={`
             w-4 h-4 rounded-full border-2 transition-all duration-700
-            ${active
-              ? 'bg-accent-purple-hover border-accent-violet shadow-[0_0_18px_rgb(139_92_246_/_0.18)]'
-              : 'bg-transparent border-[#3a3a3a]'
+            ${
+              active
+                ? "bg-accent-purple-hover border-accent-violet shadow-[0_0_18px_rgb(139_92_246_/_0.18)]"
+                : "bg-transparent border-[#3a3a3a]"
             }
           `}
           aria-hidden="true"
@@ -61,7 +63,7 @@ function MilestoneItem({
 
       {/* Content */}
       <div
-        className={`transition-all duration-850 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        className={`transition-all duration-850 ${active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         style={{ transitionDelay: `${index * 80}ms` }}
       >
         <h3 className="font-display text-2xl md:text-3xl text-[#f5f5f0] uppercase tracking-wide leading-none mb-2">
@@ -72,59 +74,62 @@ function MilestoneItem({
         </p>
       </div>
     </div>
-  )
+  );
 }
 
 export function Timeline() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [maxLineProgress, setMaxLineProgress] = useState(0)
-  const [dotThresholds, setDotThresholds] = useState<number[]>([])
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [maxLineProgress, setMaxLineProgress] = useState(0);
+  const [dotThresholds, setDotThresholds] = useState<number[]>([]);
 
   useLayoutEffect(() => {
     const calculateDotThresholds = () => {
-      const container = containerRef.current
-      if (!container) return
+      const container = containerRef.current;
+      if (!container) return;
 
-      const lineStart = 14
-      const dotTopOffset = 6
-      const lineHeight = Math.max(1, container.offsetHeight - lineStart)
+      const lineStart = 14;
+      const dotTopOffset = 6;
+      const lineHeight = Math.max(1, container.offsetHeight - lineStart);
       const thresholds = itemRefs.current.map((item) => {
-        if (!item) return 1
-        const dotTop = item.offsetTop + dotTopOffset
-        return Math.max(0, Math.min(1, (dotTop - lineStart) / lineHeight))
-      })
+        if (!item) return 1;
+        const dotTop = item.offsetTop + dotTopOffset;
+        return Math.max(0, Math.min(1, (dotTop - lineStart) / lineHeight));
+      });
 
-      setDotThresholds(thresholds)
-    }
+      setDotThresholds(thresholds);
+    };
 
-    const frame = window.requestAnimationFrame(calculateDotThresholds)
-    window.addEventListener('resize', calculateDotThresholds)
+    const frame = window.requestAnimationFrame(calculateDotThresholds);
+    window.addEventListener("resize", calculateDotThresholds);
 
     return () => {
-      window.cancelAnimationFrame(frame)
-      window.removeEventListener('resize', calculateDotThresholds)
-    }
-  }, [])
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", calculateDotThresholds);
+    };
+  }, []);
 
   useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
+    const container = containerRef.current;
+    if (!container) return;
 
     const handleScroll = () => {
-      const rect = container.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-      const lineStart = 14
-      const lineHeight = Math.max(1, container.offsetHeight - lineStart)
-      const triggerY = viewportHeight * 0.85
-      const progress = Math.max(0, Math.min(1, (triggerY - rect.top - lineStart) / lineHeight))
-      setMaxLineProgress((current) => Math.max(current, progress))
-    }
+      const rect = container.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const lineStart = 14;
+      const lineHeight = Math.max(1, container.offsetHeight - lineStart);
+      const triggerY = viewportHeight * 0.85;
+      const progress = Math.max(
+        0,
+        Math.min(1, (triggerY - rect.top - lineStart) / lineHeight),
+      );
+      setMaxLineProgress((current) => Math.max(current, progress));
+    };
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
@@ -153,9 +158,12 @@ export function Timeline() {
             One Focus.
           </h2>
           {/* Purple accent rule */}
-          <div className="w-16 h-px bg-accent-violet mt-8 mb-5" aria-hidden="true" />
+          <div
+            className="w-16 h-px bg-accent-violet mt-8 mb-5"
+            aria-hidden="true"
+          />
           <p className="font-serif italic text-[#a0a0a0] text-xl md:text-2xl">
-            The background behind the method.
+            The experience that refined my approach.
           </p>
         </div>
 
@@ -169,7 +177,7 @@ export function Timeline() {
           */}
           <div
             className="absolute w-px bg-[#1f1f1f] overflow-hidden"
-            style={{ left: '15px', top: '14px', height: 'calc(100% - 14px)' }}
+            style={{ left: "15px", top: "14px", height: "calc(100% - 14px)" }}
             aria-hidden="true"
           >
             <div
@@ -190,13 +198,12 @@ export function Timeline() {
                 maxLineProgress >= dotThresholds[index]
               }
               setItemRef={(itemIndex, el) => {
-                itemRefs.current[itemIndex] = el
+                itemRefs.current[itemIndex] = el;
               }}
             />
           ))}
         </div>
       </div>
-
     </section>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { FadeUp } from '@/components/fade-up'
+import { FadeUp } from "@/components/fade-up";
 
 export function About() {
   return (
@@ -35,27 +35,35 @@ export function About() {
           {/* Right: Copy */}
           <div className="flex flex-col justify-center lg:pt-6">
             {/* Purple accent rule */}
-            <div className="w-12 h-px bg-accent-violet mb-8" aria-hidden="true" />
+            <div
+              className="w-12 h-px bg-accent-violet mb-8"
+              aria-hidden="true"
+            />
 
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl text-[#f5f5f0] uppercase tracking-wide leading-none mb-10">
-              The Method Comes From the Man
+              The Man Behind the Method
             </h2>
 
             <div className="space-y-6 font-sans text-base md:text-lg text-[#a0a0a0] leading-relaxed">
               <p>
-                Rich McCauley has spent 20 years in fitness and over a decade in corporate sales — not as separate careers, but as one continuous study in what makes people change.
+                I&apos;ve spent 20 years in fitness and more than a decade in
+                sales, training, coaching, and consulting. To me, those were
+                never separate lanes. They were one long study in how people
+                think, perform, and change.
               </p>
               <p>
-                He holds an Associate&apos;s in Human Movement and Exercise Science and currently works as a Sales Transformation Analyst at Royal Caribbean, where he builds training programs and mentorship pipelines for sales teams at every level.
+                My background combines formal education in human movement with
+                real-world work in sales transformation, training, and
+                leadership development.
               </p>
               <p>
-                The through line across all of it: most people already know what they need to do. Rich helps them actually do it.
+                Twenty years in, the best part is still watching someone&apos;s
+                confidence catch up to their potential.
               </p>
             </div>
           </div>
         </div>
       </div>
-
     </section>
-  )
+  );
 }

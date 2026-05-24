@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 export function Hero() {
   return (
@@ -22,10 +22,8 @@ export function Hero() {
 
       {/* Layout grid */}
       <div className="h-full max-w-[1200px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-0 items-stretch">
-
         {/* Left: Text — 60% */}
         <div className="lg:col-span-3 flex flex-col justify-center relative pt-28 pb-16 md:pt-32 lg:pt-16 lg:pb-12">
-
           {/* Ghost watermark — "RICHM" behind headline */}
           <span
             className="hidden md:block absolute top-1/2 -translate-y-1/2 -left-4 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[22vw] xl:text-[18rem] leading-none select-none pointer-events-none whitespace-nowrap z-0"
@@ -39,7 +37,7 @@ export function Hero() {
               Build the Body.
             </span>
             <span className="hero-line-2 block text-[14vw] md:text-[11vw] lg:text-[8vw] xl:text-[7.5rem]">
-              Close the Deal.
+              Lead the Room.
             </span>
             <span className="hero-line-3 block text-[14vw] md:text-[11vw] lg:text-[8vw] xl:text-[7.5rem]">
               Own Your Life.
@@ -47,7 +45,8 @@ export function Hero() {
           </h1>
 
           <p className="hero-subhead relative z-10 mt-6 lg:mt-8 font-serif italic text-[#a0a0a0] text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl">
-            Coaching for people who are done playing small — in the gym, in business, and everywhere in between.
+            For people who want to get stronger, lead better, and stop
+            negotiating with their own potential.
           </p>
 
           <div className="hero-cta relative z-10 mt-6 lg:mt-8">
@@ -85,5 +84,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

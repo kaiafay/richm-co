@@ -1,25 +1,25 @@
-import { FadeUp } from '@/components/fade-up'
+import { FadeUp } from "@/components/fade-up";
 
 const services = [
   {
-    number: '01',
-    title: 'Personal Training',
+    number: "01",
+    title: "Fitness Coaching",
     description:
-      "Results-driven programming built around your body, your schedule, and where you actually want to go. No cookie-cutter plans.",
+      "Custom training programs and nutrition plans tailored to your body, your schedule, and your goals.",
   },
   {
-    number: '02',
-    title: 'Sales Consulting',
+    number: "02",
+    title: "Sales Consulting",
     description:
-      "Sharpen your process, tighten your close rate, sell with more confidence. Built for reps, managers, and executives who want to stop leaving money on the table.",
+      "I help reps, sales leaders, and business owners tighten their process, raise their standard, and sell with more confidence.",
   },
   {
-    number: '03',
-    title: 'Life Coaching',
+    number: "03",
+    title: "Leadership Mentoring",
     description:
-      "Clarity, accountability, and a plan. For people who are capable of more and know it.",
+      "As a leader of multiple global mentorship programs, I coach individuals on both sides of the leadership curve — those stepping in for the first time and those who've been leading for years and want to do it better.",
   },
-]
+];
 
 export function Services() {
   return (
@@ -32,7 +32,7 @@ export function Services() {
         {/* Section label */}
         <FadeUp delay={0} className="service-reveal">
           <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#6b6b6b] mb-16">
-            What We Do
+            What I Offer
           </p>
         </FadeUp>
 
@@ -42,7 +42,7 @@ export function Services() {
             <FadeUp
               key={service.number}
               delay={(index + 1) * 100}
-              className={`service-reveal relative pt-4 pb-10 px-10 lg:px-12 overflow-visible ${index !== 0 ? 'mt-12 md:mt-0' : ''}`}
+              className={`service-reveal relative pt-4 pb-10 px-10 lg:px-12 overflow-visible ${index !== 0 ? "mt-12 md:mt-0" : ""}`}
             >
               {/* Large decorative number — overhangs top of column content */}
               <span
@@ -75,5 +75,5 @@ export function Services() {
         </div>
       </div>
     </section>
-  )
+  );
 }
