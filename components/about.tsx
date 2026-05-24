@@ -8,10 +8,10 @@ export function About() {
       aria-label="About Rich McCauley"
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-[2]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] lg:grid-cols-2 gap-16 md:gap-12 lg:gap-24 items-start">
           {/* Left: Image */}
           <FadeUp delay={0}>
-            <div className="relative">
+            <div className="relative md:max-w-[360px] lg:max-w-none">
               <img
                 src="/images/about.webp"
                 alt=""
@@ -19,7 +19,7 @@ export function About() {
                 aria-hidden="true"
               />
               <div
-                className="aspect-[3/4] overflow-hidden bg-[#1a1a1a] relative shadow-[0_0_48px_rgb(0_0_0_/_0.55)]"
+                className="aspect-[3/4] md:max-h-[540px] lg:max-h-none overflow-hidden bg-[#1a1a1a] relative shadow-[0_0_48px_rgb(0_0_0_/_0.55)]"
                 aria-hidden="false"
               >
                 <img
@@ -33,7 +33,7 @@ export function About() {
           </FadeUp>
 
           {/* Right: Copy */}
-          <div className="flex flex-col justify-center lg:pt-8">
+          <div className="flex flex-col justify-center lg:pt-6">
             {/* Purple accent rule */}
             <div className="w-12 h-px bg-accent-violet mb-8" aria-hidden="true" />
 

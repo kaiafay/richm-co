@@ -17,7 +17,7 @@ export function Hero() {
         <img
           src="/images/hero.webp"
           alt=""
-          className="hero-image-enter absolute inset-0 h-full w-full object-cover object-[58%_center] grayscale-[20%] brightness-[0.68] contrast-[1.08]"
+          className="hero-image-enter absolute inset-0 h-full w-full object-cover object-[58%_top] grayscale-[20%] brightness-[0.68] contrast-[1.08]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.58)_18%,rgb(10_10_10_/_0.34)_48%,#0a0a0a_100%),linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.56)_34%,rgb(10_10_10_/_0.18)_68%,#0a0a0a_100%)]" />
       </div>
@@ -73,12 +73,12 @@ export function Hero() {
         </div>
 
         {/* Right: Image — 40% */}
-        <div className="hidden lg:col-span-2 lg:flex flex-col h-[38vh] sm:h-[42vh] lg:h-full min-h-0 pb-8 lg:pt-[calc(4rem+2.5rem)] lg:pb-10">
+        <div className="hidden lg:col-span-2 lg:flex flex-col h-[38vh] sm:h-[42vh] lg:h-full min-h-0 pb-8 lg:pt-16 lg:pb-6">
           <div className="hero-image-bleed relative w-full flex-1 min-h-0 lg:w-[calc(100%+4rem)] lg:-mr-16">
             <img
               src="/images/hero.webp"
               alt="Rich McCauley — Fitness and Business Coach"
-              className="hero-image-enter absolute inset-0 w-full h-full object-cover object-[58%_center] grayscale-[20%] brightness-[0.90] contrast-[1.08]"
+              className="hero-image-enter absolute inset-0 w-full h-full scale-[1.02] xl:scale-[1.06] object-cover object-[54%_center] xl:object-[58%_center] grayscale-[20%] brightness-[0.90] contrast-[1.08]"
             />
             <div
               className="absolute inset-0 bg-[linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.56)_10%,rgb(10_10_10_/_0.12)_28%,transparent_48%),linear-gradient(0deg,#0a0a0a_0%,rgb(10_10_10_/_0.55)_10%,transparent_28%),linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.24)_8%,transparent_22%)]"
