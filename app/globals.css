@@ -231,6 +231,17 @@
   mask-composite: intersect;
 }
 
+.timeline-image-bleed {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 9%, black 84%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 9%, black 84%, transparent 100%);
+  mask-composite: intersect;
+}
+
 /* Subtle film grain for photo containers */
 .grain-overlay-image {
   position: absolute;
@@ -242,4 +253,8 @@
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='200'%20height='200'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.75'%20numOctaves='4'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='200'%20height='200'%20filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
+}
+
+.grain-overlay-fitness {
+  opacity: 0.16;
 }

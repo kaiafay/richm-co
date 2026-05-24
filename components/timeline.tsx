@@ -139,69 +139,107 @@ export function Timeline() {
     >
       {/* Film grain */}
       <div className="grain-overlay" aria-hidden="true" />
+      <div className="absolute top-0 left-0 right-0 h-[470px] overflow-hidden sm:h-[520px] md:h-[620px] xl:hidden" aria-hidden="true">
+        <img
+          src="/images/fitness.webp"
+          alt=""
+          className="absolute inset-0 h-full w-full scale-[1.04] object-cover object-[50%_34%] grayscale-[15%] brightness-[0.52] contrast-[1.1]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.32)_16%,rgb(10_10_10_/_0.48)_52%,rgb(10_10_10_/_0.76)_78%,#0a0a0a_100%),linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.42)_22%,rgb(10_10_10_/_0.18)_58%,#0a0a0a_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent via-[#0a0a0a]/80 to-[#0a0a0a] sm:h-52 md:h-60" />
+        <div className="grain-overlay-image" aria-hidden="true" />
+      </div>
 
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12 relative z-[4]">
         {/* Section header */}
-        <div className="mb-20 relative overflow-hidden">
-          {/* Ghost watermark — "YEARS" behind headline */}
+        <div className="mb-10 relative min-h-[280px] py-10 md:mb-12 md:min-h-[420px] md:py-16 xl:min-h-0 xl:py-0">
+          {/* Desktop ghost watermark — "YEARS" behind headline */}
           <span
-            className="absolute top-0 -left-2 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[28vw] lg:text-[20rem] leading-none select-none pointer-events-none"
+            className="hidden xl:block absolute top-0 -left-2 z-[1] font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[20rem] leading-none select-none pointer-events-none"
             aria-hidden="true"
           >
             YEARS
           </span>
 
-          <h2 className="relative font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
-            20 Years.
-          </h2>
-          <h2 className="relative font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
-            One Focus.
-          </h2>
+          <div className="relative">
+            {/* Tablet ghost watermark — "YEARS" behind headline */}
+            <span
+              className="hidden md:block xl:hidden absolute top-1/2 -translate-y-1/2 -left-4 z-0 font-display uppercase text-[#f5f5f0] opacity-[0.05] text-[20vw] leading-none select-none pointer-events-none whitespace-nowrap"
+              aria-hidden="true"
+            >
+              YEARS
+            </span>
+
+            <h2 className="relative z-10 font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
+              20 Years.
+            </h2>
+            <h2 className="relative z-10 font-display text-6xl md:text-8xl lg:text-9xl text-[#f5f5f0] uppercase tracking-wide leading-none">
+              One Focus.
+            </h2>
+          </div>
+
           {/* Purple accent rule */}
           <div
-            className="w-16 h-px bg-accent-violet mt-8 mb-5"
+            className="relative z-10 w-16 h-px bg-accent-violet mt-8 mb-5"
             aria-hidden="true"
           />
-          <p className="font-serif italic text-[#a0a0a0] text-xl md:text-2xl">
+          <p className="relative z-10 font-serif italic text-[#a0a0a0] text-xl md:text-2xl">
             The experience that refined my approach.
           </p>
         </div>
 
-        {/* Timeline list */}
-        <div ref={containerRef} className="relative max-w-3xl">
-          {/*
-            Vertical line — position:absolute, contained in this div.
-            left: 15px centers it on the w-8 (32px) dot column (dot center = 16px).
-            top: 14px = mt-1.5 (6px) + half of h-4 (8px) = first dot center.
-            height: calc(100% - 14px) runs to near the bottom of the last dot.
-          */}
-          <div
-            className="absolute w-px bg-[#1f1f1f] overflow-hidden"
-            style={{ left: "15px", top: "14px", height: "calc(100% - 14px)" }}
-            aria-hidden="true"
-          >
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_minmax(380px,520px)] gap-16 xl:gap-20 items-start">
+          {/* Timeline list */}
+          <div ref={containerRef} className="relative max-w-3xl">
+            {/*
+              Vertical line — position:absolute, contained in this div.
+              left: 15px centers it on the w-8 (32px) dot column (dot center = 16px).
+              top: 14px = mt-1.5 (6px) + half of h-4 (8px) = first dot center.
+              height: calc(100% - 14px) runs to near the bottom of the last dot.
+            */}
             <div
-              className="w-full bg-accent-violet/60 transition-[height] duration-200 ease-out"
-              style={{ height: `${maxLineProgress * 100}%` }}
-            />
+              className="absolute w-px bg-[#1f1f1f] overflow-hidden"
+              style={{ left: "15px", top: "14px", height: "calc(100% - 14px)" }}
+              aria-hidden="true"
+            >
+              <div
+                className="w-full bg-accent-violet/60 transition-[height] duration-200 ease-out"
+                style={{ height: `${maxLineProgress * 100}%` }}
+              />
+            </div>
+
+            {/* Milestones */}
+            {milestones.map((milestone, index) => (
+              <MilestoneItem
+                key={index}
+                milestone={milestone}
+                index={index}
+                active={
+                  maxLineProgress > 0 &&
+                  dotThresholds[index] !== undefined &&
+                  maxLineProgress >= dotThresholds[index]
+                }
+                setItemRef={(itemIndex, el) => {
+                  itemRefs.current[itemIndex] = el;
+                }}
+              />
+            ))}
           </div>
 
-          {/* Milestones */}
-          {milestones.map((milestone, index) => (
-            <MilestoneItem
-              key={index}
-              milestone={milestone}
-              index={index}
-              active={
-                maxLineProgress > 0 &&
-                dotThresholds[index] !== undefined &&
-                maxLineProgress >= dotThresholds[index]
-              }
-              setItemRef={(itemIndex, el) => {
-                itemRefs.current[itemIndex] = el;
-              }}
-            />
-          ))}
+          <div className="hidden xl:block h-[840px]">
+            <div className="timeline-image-bleed relative h-full w-full overflow-hidden">
+              <img
+                src="/images/fitness.webp"
+                alt="Rich McCauley in the gym"
+                className="absolute inset-0 h-full w-full scale-[1.08] object-cover object-[52%_center] grayscale-[15%] brightness-[0.82] contrast-[1.06]"
+              />
+              <div
+                className="absolute inset-0 bg-[linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.42)_9%,rgb(10_10_10_/_0.08)_28%,transparent_48%),linear-gradient(0deg,#0a0a0a_0%,rgb(10_10_10_/_0.48)_12%,transparent_34%),linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.28)_8%,transparent_24%)]"
+                aria-hidden="true"
+              />
+              <div className="grain-overlay-image grain-overlay-fitness" aria-hidden="true" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
