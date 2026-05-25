@@ -37,7 +37,11 @@
 
       body {
         background:
-          radial-gradient(circle at 50% -10%, rgba(178, 138, 60, 0.13), transparent 32rem),
+          radial-gradient(
+            circle at 50% -10%,
+            rgba(178, 138, 60, 0.13),
+            transparent 32rem
+          ),
           var(--page);
         color: var(--text);
         font-family: "Inter", sans-serif;
@@ -179,7 +183,6 @@
         .card--spaced-mobile .grid-2 .field {
           margin-bottom: 0;
         }
-
       }
 
       /* Field */
@@ -622,7 +625,7 @@
         <p class="header-eyebrow">RichM Co.</p>
         <h1>Leadership Mentoring Inquiry</h1>
         <p class="header-copy">
-          Tell me where you are now and what kind of support would be most
+          Tell me your current situation and what kind of support would be most
           helpful.
         </p>
         <div class="divider"></div>
@@ -700,12 +703,12 @@
           </div>
 
           <div class="field">
-            <label for="instagram">Instagram</label>
+            <label for="company">Company</label>
             <input
               type="text"
-              id="instagram"
-              name="Instagram"
-              placeholder="@handle"
+              id="company"
+              name="Company"
+              placeholder="Company name"
             />
           </div>
 
