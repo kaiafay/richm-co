@@ -1,22 +1,21 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const intakeOptions = [
   {
     label: "Fitness Coaching",
-    href: "/intakes/fitness/index.html",
+    href: "/intakes/fitness",
     accent: "border-[#7f68d8] hover:bg-[#7f68d8]",
   },
   {
     label: "Sales Consulting",
-    href: "/intakes/sales-consulting/index.html",
+    href: "/intakes/sales-consulting",
     accent: "border-[#4f7f9d] hover:bg-[#4f7f9d]",
   },
   {
     label: "Leadership Mentoring",
-    href: "/intakes/leadership-mentoring/index.html",
+    href: "/intakes/leadership-mentoring",
     accent: "border-[#b28a3c] hover:bg-[#b28a3c]",
   },
 ];
@@ -38,6 +37,21 @@ export function IntakePicker() {
 
     window.addEventListener("pageshow", handlePageShow);
     return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
+
+  useEffect(() => {
+    const prefetchLinks = intakeOptions.map((option) => {
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = option.href;
+      link.as = "document";
+      document.head.appendChild(link);
+      return link;
+    });
+
+    return () => {
+      prefetchLinks.forEach((link) => link.remove());
+    };
   }, []);
 
   function scrollToContactForm() {
@@ -83,7 +97,7 @@ export function IntakePicker() {
     <div className="max-w-[760px] mx-auto">
       <div className="grid grid-cols-1 gap-4 mt-14">
         {intakeOptions.map((option) => (
-          <Link
+          <a
             key={option.href}
             href={option.href}
             className={`group flex items-center justify-between gap-6 border ${option.accent} px-6 py-5 touch-manipulation transition-[background-color,border-color,transform] duration-200 active:scale-[0.985] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet [-webkit-tap-highlight-color:transparent]`}
@@ -94,7 +108,7 @@ export function IntakePicker() {
             <span className="hidden sm:block font-sans text-xs font-medium tracking-[0.18em] uppercase text-[#a0a0a0] transition-colors group-hover:text-[#f5f5f0]">
               Start
             </span>
-          </Link>
+          </a>
         ))}
       </div>
 
