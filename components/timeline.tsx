@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const milestones = [
   {
-    title: "Associate's Degree, Human Movement & Exercise Science",
+    title: "Associate's Degree, Kinesiology & Exercise Science",
     description:
       "The starting point for a career built around how people move, think, perform, and change.",
   },
@@ -139,7 +139,10 @@ export function Timeline() {
     >
       {/* Film grain */}
       <div className="grain-overlay" aria-hidden="true" />
-      <div className="absolute top-0 left-0 right-0 h-[470px] overflow-hidden sm:h-[520px] md:h-[620px] xl:hidden" aria-hidden="true">
+      <div
+        className="absolute top-0 left-0 right-0 h-[470px] overflow-hidden sm:h-[520px] md:h-[620px] xl:hidden"
+        aria-hidden="true"
+      >
         <img
           src="/images/fitness.webp"
           alt=""
@@ -237,7 +240,10 @@ export function Timeline() {
                 className="absolute inset-0 bg-[linear-gradient(90deg,#0a0a0a_0%,rgb(10_10_10_/_0.42)_9%,rgb(10_10_10_/_0.08)_28%,transparent_48%),linear-gradient(0deg,#0a0a0a_0%,rgb(10_10_10_/_0.48)_12%,transparent_34%),linear-gradient(180deg,#0a0a0a_0%,rgb(10_10_10_/_0.28)_8%,transparent_24%)]"
                 aria-hidden="true"
               />
-              <div className="grain-overlay-image grain-overlay-fitness" aria-hidden="true" />
+              <div
+                className="grain-overlay-image grain-overlay-fitness"
+                aria-hidden="true"
+              />
             </div>
           </div>
         </div>

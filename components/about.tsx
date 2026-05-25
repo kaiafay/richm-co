@@ -52,7 +52,7 @@ export function About() {
                 think, perform, and change.
               </p>
               <p>
-                My background combines formal education in human movement with
+                My background combines formal education in exercise science with
                 real-world work in sales transformation, training, and
                 leadership development.
               </p>
