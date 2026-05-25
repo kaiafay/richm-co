@@ -203,8 +203,8 @@ export function Timeline() {
               aria-hidden="true"
             >
               <div
-                className="w-full bg-accent-violet/60 transition-[height] duration-200 ease-out"
-                style={{ height: `${maxLineProgress * 100}%` }}
+                className="h-full w-full origin-top bg-accent-violet/60 transition-transform duration-100 ease-out"
+                style={{ transform: `scaleY(${maxLineProgress})` }}
               />
             </div>
 
