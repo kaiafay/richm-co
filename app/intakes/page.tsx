@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function IntakesPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#f5f5f0]">
+    <main className="flex min-h-screen flex-col bg-[#0a0a0a] text-[#f5f5f0]">
       <section
-        className="relative overflow-hidden pt-24 pb-20 md:pt-28 md:pb-28"
+        className="relative flex-1 overflow-hidden pt-20 pb-10 md:pt-24 md:pb-14 lg:pt-28 lg:pb-20"
         aria-label="Choose your intake form"
       >
         <div className="grain-overlay" aria-hidden="true" />

@@ -105,8 +105,11 @@ export function IntakePicker() {
             <span className="font-display text-[2rem] sm:text-[2.75rem] uppercase tracking-wide leading-none text-[#f5f5f0]">
               {option.label}
             </span>
-            <span className="hidden sm:block font-sans text-xs font-medium tracking-[0.18em] uppercase text-[#a0a0a0] transition-colors group-hover:text-[#f5f5f0]">
-              Start
+            <span
+              className="hidden sm:block text-3xl leading-none text-[#a0a0a0] transition-[color,transform] group-hover:translate-x-1 group-hover:text-[#f5f5f0] group-active:translate-x-1"
+              aria-hidden="true"
+            >
+              →
             </span>
           </a>
         ))}
