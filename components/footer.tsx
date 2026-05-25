@@ -24,7 +24,7 @@ function InstagramIcon() {
 export function Footer() {
   return (
     <footer
-      className="bg-[#0a0a0a] border-t border-[#1f1f1f] py-12"
+      className="bg-[#0a0a0a] border-t border-[#1f1f1f] py-6"
       aria-label="Site footer"
     >
       <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
@@ -33,7 +33,7 @@ export function Footer() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="font-display text-xl text-[#f5f5f0] tracking-wide hover:text-accent-violet transition-colors"
+            className="inline-block touch-manipulation font-display text-xl text-[#f5f5f0] tracking-wide transition-[color,transform] hover:text-accent-violet active:scale-[0.97] active:text-accent-violet [-webkit-tap-highlight-color:transparent]"
             aria-label="RichM Co. — back to top"
           >
             RichM Co.
@@ -45,7 +45,7 @@ export function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6b6b6b] hover:text-accent-violet transition-colors"
+              className="inline-flex size-10 touch-manipulation items-center justify-center text-[#6b6b6b] transition-[color,background-color,transform] hover:text-accent-violet active:scale-95 active:bg-white/5 active:text-accent-violet [-webkit-tap-highlight-color:transparent]"
               aria-label="RichM Co. on Instagram"
             >
               <InstagramIcon />

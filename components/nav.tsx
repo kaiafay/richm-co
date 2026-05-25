@@ -66,7 +66,7 @@ export function Nav() {
             setMenuOpen(false)
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
-          className="font-display text-2xl text-[#f5f5f0] tracking-wide hover:text-accent-violet transition-colors"
+          className="inline-block touch-manipulation font-display text-2xl text-[#f5f5f0] tracking-wide transition-[color,transform] hover:text-accent-violet active:scale-[0.97] active:text-accent-violet [-webkit-tap-highlight-color:transparent]"
           aria-label="RichM Co. — home"
         >
           RichM Co.
@@ -81,7 +81,7 @@ export function Nav() {
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className={`relative font-sans text-sm tracking-widest uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-violet after:transition-transform after:duration-200 ${
+                  className={`relative touch-manipulation font-sans text-sm tracking-widest uppercase transition-[color,transform] duration-200 after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-violet after:transition-transform after:duration-200 active:scale-[0.97] [-webkit-tap-highlight-color:transparent] ${
                     isActive
                       ? 'text-accent-violet'
                       : 'text-[#a0a0a0] hover:text-[#f5f5f0] hover:after:scale-x-100 focus-visible:after:scale-x-100'
@@ -97,7 +97,7 @@ export function Nav() {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="md:hidden relative z-[70] size-10"
+          className="md:hidden relative z-[70] size-10 touch-manipulation rounded-sm transition-[background-color,transform] active:scale-95 active:bg-white/5 [-webkit-tap-highlight-color:transparent]"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
@@ -137,7 +137,7 @@ export function Nav() {
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className={`relative w-fit font-display text-5xl tracking-wider uppercase transition-colors after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-violet after:transition-transform after:duration-200 ${
+                    className={`relative w-fit touch-manipulation font-display text-5xl tracking-wider uppercase transition-[color,transform] after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent-violet after:transition-transform after:duration-200 active:scale-[0.97] active:text-accent-violet [-webkit-tap-highlight-color:transparent] ${
                       isActive
                         ? 'text-accent-violet'
                         : 'text-[#f5f5f0] hover:after:scale-x-100 focus-visible:after:scale-x-100'
@@ -153,7 +153,7 @@ export function Nav() {
           <a
             href="/intakes"
             onClick={() => setMenuOpen(false)}
-            className="mt-auto inline-flex w-fit font-display text-4xl uppercase tracking-wider text-[#f5f5f0] underline decoration-accent-violet decoration-1 underline-offset-8 transition-colors hover:text-accent-violet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-violet"
+            className="mt-auto inline-flex w-fit touch-manipulation font-display text-4xl uppercase tracking-wider text-[#f5f5f0] underline decoration-accent-violet decoration-1 underline-offset-8 transition-[color,transform] hover:text-accent-violet active:scale-[0.97] active:text-accent-violet focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-violet [-webkit-tap-highlight-color:transparent]"
           >
             Work With Me
           </a>

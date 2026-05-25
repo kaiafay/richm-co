@@ -28,7 +28,7 @@ export default function IntakesPage() {
           <header className="flex items-center justify-between gap-6 mb-20">
             <Link
               href="/"
-              className="font-display text-2xl tracking-wide text-[#f5f5f0] hover:text-accent-violet transition-colors"
+              className="inline-block touch-manipulation font-display text-2xl tracking-wide text-[#f5f5f0] transition-[color,transform] hover:text-accent-violet active:scale-[0.97] active:text-accent-violet [-webkit-tap-highlight-color:transparent]"
               aria-label="RichM Co. home"
             >
               RichM Co.
@@ -36,7 +36,7 @@ export default function IntakesPage() {
 
             <Link
               href="/"
-              className="font-sans text-xs tracking-[0.22em] uppercase text-[#a0a0a0] hover:text-accent-violet transition-colors"
+              className="inline-block touch-manipulation font-sans text-xs tracking-[0.22em] uppercase text-[#a0a0a0] transition-[color,transform] hover:text-accent-violet active:scale-[0.97] active:text-accent-violet [-webkit-tap-highlight-color:transparent]"
             >
               Back
             </Link>

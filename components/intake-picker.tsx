@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const intakeOptions = [
   {
@@ -28,21 +28,30 @@ export function IntakePicker() {
   >("idle");
   const contactFormRef = useRef<HTMLDivElement>(null);
 
-  function handleContactToggle() {
-    setContactOpen((open) => {
-      const nextOpen = !open;
+  useEffect(() => {
+    function handlePageShow(event: PageTransitionEvent) {
+      if (!event.persisted) return;
 
-      if (nextOpen) {
-        window.setTimeout(() => {
-          contactFormRef.current?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }, 120);
-      }
+      setContactOpen(false);
+      setContactStatus("idle");
+    }
 
-      return nextOpen;
-    });
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
+
+  function scrollToContactForm() {
+    window.setTimeout(() => {
+      contactFormRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 120);
+  }
+
+  function handleContactOpen() {
+    setContactOpen(true);
+    scrollToContactForm();
   }
 
   async function handleContactSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -77,7 +86,7 @@ export function IntakePicker() {
           <Link
             key={option.href}
             href={option.href}
-            className={`group flex items-center justify-between gap-6 border ${option.accent} px-6 py-5 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet`}
+            className={`group flex items-center justify-between gap-6 border ${option.accent} px-6 py-5 touch-manipulation transition-[background-color,border-color,transform] duration-200 active:scale-[0.985] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet [-webkit-tap-highlight-color:transparent]`}
           >
             <span className="font-display text-[2rem] sm:text-[2.75rem] uppercase tracking-wide leading-none text-[#f5f5f0]">
               {option.label}
@@ -92,8 +101,8 @@ export function IntakePicker() {
       <div className="mt-10 text-center">
         <button
           type="button"
-          onClick={handleContactToggle}
-          className="font-serif italic text-lg text-[#a0a0a0] underline decoration-[#3a3a3a] underline-offset-4 transition-colors hover:text-[#f5f5f0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-violet"
+          onClick={handleContactOpen}
+          className="inline-block touch-manipulation font-serif italic text-lg text-[#a0a0a0] underline decoration-[#3a3a3a] underline-offset-4 transition-[color,transform] hover:text-[#f5f5f0] active:scale-[0.97] active:text-[#f5f5f0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-violet [-webkit-tap-highlight-color:transparent]"
           aria-expanded={contactOpen}
           aria-controls="general-contact-form"
         >
@@ -175,7 +184,7 @@ export function IntakePicker() {
             <button
               type="submit"
               disabled={contactStatus === "submitting"}
-              className="mt-5 w-full border border-accent-violet bg-transparent px-6 py-4 font-sans text-xs font-medium tracking-[0.18em] uppercase text-[#f5f5f0] transition-colors hover:bg-accent-purple-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet"
+              className="mt-5 w-full touch-manipulation border border-accent-violet bg-transparent px-6 py-4 font-sans text-xs font-medium tracking-[0.18em] uppercase text-[#f5f5f0] transition-[background-color,transform] hover:bg-accent-purple-hover active:scale-[0.985] active:bg-accent-purple-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet disabled:pointer-events-none disabled:opacity-60 [-webkit-tap-highlight-color:transparent]"
             >
               {contactStatus === "submitting" ? "Sending..." : "Send"}
             </button>

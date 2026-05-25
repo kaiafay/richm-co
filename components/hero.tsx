@@ -57,9 +57,11 @@ export function Hero() {
                 bg-transparent border border-accent-violet text-[#f5f5f0]
                 px-12 py-4
                 shadow-[0_0_24px_rgb(139_92_246_/_0.12)]
-                transition-colors duration-200
+                touch-manipulation transition-[background-color,border-color,color,transform] duration-200
                 hover:bg-accent-purple-hover hover:border-accent-violet hover:text-[#f5f5f0]
+                active:scale-[0.98] active:bg-accent-purple-hover
                 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-violet
+                [-webkit-tap-highlight-color:transparent]
               "
             >
               Let&apos;s Work Together
