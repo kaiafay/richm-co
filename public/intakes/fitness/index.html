@@ -37,7 +37,11 @@
 
       body {
         background:
-          radial-gradient(circle at 50% -10%, rgba(127, 104, 216, 0.12), transparent 32rem),
+          radial-gradient(
+            circle at 50% -10%,
+            rgba(127, 104, 216, 0.12),
+            transparent 32rem
+          ),
           var(--page);
         color: var(--text);
         font-family: "Inter", sans-serif;
@@ -758,7 +762,7 @@
         <h1>Fitness Coaching Intake</h1>
         <p class="header-copy">
           Please take your time and fill this out as thoroughly as possible.
-          Your answers help us build the right plan for you.
+          Your answers help me build the right plan for you.
         </p>
         <div class="divider"></div>
       </div>
@@ -856,21 +860,13 @@
 
           <div class="field">
             <label>What type of coaching are you looking for?</label>
-            <div class="pill-group pill-group--coaching">
-              <input
-                type="radio"
-                name="Coaching Type"
-                id="nutritionOnly"
-                value="Nutrition Only"
-              />
-              <label for="nutritionOnly">Nutrition Only</label>
-              <input
-                type="radio"
-                name="Coaching Type"
-                id="nutritionTraining"
-                value="Nutrition + Training"
-              />
-              <label for="nutritionTraining">Nutrition + Training</label>
+            <div class="select-wrap">
+              <select name="Coaching Type">
+                <option value="">Select an option</option>
+                <option>Nutrition</option>
+                <option>Training</option>
+                <option>Both</option>
+              </select>
             </div>
           </div>
 
