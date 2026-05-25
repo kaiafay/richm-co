@@ -585,18 +585,6 @@
         display: block;
       }
 
-      html.signature-locked,
-      body.signature-locked {
-        overflow: hidden;
-      }
-
-      body.signature-locked {
-        position: fixed;
-        left: 0;
-        right: 0;
-        width: 100%;
-      }
-
       .sig-actions {
         display: flex;
         justify-content: flex-end;
@@ -1234,7 +1222,7 @@
       let drawing = false;
       let hasSig = false;
       let signatureImageData = "";
-      let signatureScrollY = 0;
+      let resizeSignatureAfterStroke = false;
       const form = document.getElementById("intakeForm");
       const emailInput = document.getElementById("email");
       const phoneInput = document.getElementById("phone");
@@ -1301,27 +1289,15 @@
         return value.replace(/\D/g, "").length === 10;
       }
 
-      function lockSignatureScroll() {
-        if (document.body.classList.contains("signature-locked")) return;
-        signatureScrollY = window.scrollY;
-        document.documentElement.classList.add("signature-locked");
-        document.body.classList.add("signature-locked");
-        document.body.style.top = `-${signatureScrollY}px`;
-      }
-
-      function unlockSignatureScroll() {
-        if (!document.body.classList.contains("signature-locked")) return;
-        document.documentElement.classList.remove("signature-locked");
-        document.body.classList.remove("signature-locked");
-        document.body.style.top = "";
-        window.scrollTo(0, signatureScrollY);
-      }
-
       function endSignatureStroke() {
         if (!drawing) return;
         drawing = false;
-        unlockSignatureScroll();
         saveSignature();
+
+        if (resizeSignatureAfterStroke) {
+          resizeSignatureAfterStroke = false;
+          resizeCanvas();
+        }
       }
 
       function configureSignatureCanvas(dpr) {
@@ -1345,6 +1321,11 @@
       }
 
       function resizeCanvas() {
+        if (drawing) {
+          resizeSignatureAfterStroke = true;
+          return;
+        }
+
         const signatureData = signatureImageData;
         const pad = canvas.parentElement;
         const rect = pad.getBoundingClientRect();
@@ -1391,7 +1372,6 @@
         "touchstart",
         (e) => {
           e.preventDefault();
-          lockSignatureScroll();
           drawing = true;
           const p = getPos(e);
           ctx.beginPath();
